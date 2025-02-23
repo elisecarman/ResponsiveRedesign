@@ -1,0 +1,30 @@
+.callout{
+  word-break: break-word;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1rem;
+  font-family: "Fira Code", monospace;
+  font-size: 17.5px;
+  text-align: left;
+}
+
+.dark-callout {
+  word-break: break-word;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 1rem;
+  font-family: "Fira Code", monospace;
+  font-size: 17.5px;
+  text-align: left;
+}
+ 
+.section{
+  overflow: hidden;
+  min-height: 100vh;
+  background: #f2f2f2;
+  padding: 3rem;
+  padding-top: 2rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
