@@ -28,3 +28,8 @@
   margin-left: 3rem;
   margin-right: 3rem;
 }
+
+.dark-card{
+  background-color: #000000;
+  color: #f2f2f2;
+}
