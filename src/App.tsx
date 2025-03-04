@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import './App.css'
 import mouse_simple from "./assets/mouse-simple.png"
 import mouse_improved from "./assets/mouse-improved.png"
@@ -30,7 +30,22 @@ function App() {
   const section6Ref = useRef(null);
   const section7Ref = useRef(null);
   const section8Ref = useRef(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
+  useEffect(() => {
+    const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    setIsDarkMode(darkModeMediaQuery.matches);
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      setIsDarkMode(event.matches);
+    };
+
+    darkModeMediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      darkModeMediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
 
   const scrollToSection = (ref: any) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
@@ -38,7 +53,7 @@ function App() {
 
   return (
 
-    <Container>
+    <Container className={isDarkMode ? "dark-top" : "top"}>
       <nav style={{
         position: "fixed",
         top: "50%",
@@ -76,7 +91,7 @@ function App() {
         </Button>
       </nav>
 
-      <div ref={section1Ref} className="section">
+      <div ref={section1Ref} className={isDarkMode ? "dark-section" : "section"}>
         <h1 className="mb-5">Is your Dropdown Menu up to par?</h1>
         <Row className="justify-content-center">
           <Col xs="auto" className="text-center gap-4">
@@ -89,7 +104,7 @@ function App() {
             <h3 className="mb-3">Simple right?</h3>
           </Col>
         </Row>
-        <h5 className="callout">
+        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
           Yet a lot of thought goes into designing a good dropdown menu. Take the time to interact with this menu.
           <br />
           How do you open it, collapse it? Can you interact with it with your keyboard instead?
@@ -101,11 +116,11 @@ function App() {
         </h5>
       </div>
 
-      <div ref={section2Ref} className="section">
+      <div ref={section2Ref} className={isDarkMode ? "dark-section" : "section"}>
         <h2>Entities</h2>
         <Row className="mb-4">
           <Col md={4} >
-            <Card className="p-3 h-100 ">
+            <Card className={isDarkMode ? "dark-card p-3 h-100": "p-3 h-100"}>
               <Card.Title>Chrome</Card.Title>
               <Card.Subtitle className="mb-3">bookmark dropdown</Card.Subtitle>
               <Card.Img className="mb-2" src={chrome_d}></Card.Img>
@@ -114,7 +129,7 @@ function App() {
           </Col>
 
           <Col md={4}>
-            <Card className="p-3 h-100 ">
+            <Card className={isDarkMode ? "dark-card p-3 h-100": "p-3 h-100"}>
               <Card.Title>Spotify </Card.Title>
               <Card.Subtitle className="mb-3">profile dropdown</Card.Subtitle>
               <Card.Img className="mb-2" src={spotify_d}></Card.Img>
@@ -123,7 +138,7 @@ function App() {
           </Col>
 
           <Col md={4}>
-            <Card className="p-3 h-100 ">
+            <Card className={isDarkMode ? "dark-card p-3 h-100": "p-3 h-100"}>
               <Card.Title>ShellShock.io</Card.Title>
               <Card.Subtitle className="mb-3">game mode dropdown</Card.Subtitle>
               <Card.Img className="mb-2" src={shellshock_d}></Card.Img>
@@ -131,7 +146,7 @@ function App() {
             </Card>
           </Col>
         </Row>
-        <h5 className="callout">
+        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
           For this Dropdown Menu analysis, we'll be looking at the following three dropdowns:
           <br />
           - the Chrome bookmarks dropdown
@@ -144,14 +159,14 @@ function App() {
         </h5>
       </div>
 
-      <div ref={section3Ref} className="section">
+      <div ref={section3Ref} className={isDarkMode ? "dark-section" : "section"}>
         <h2> Comparing Inputs </h2>
-        <h5 className="callout mb-5">
+        <h5 className={isDarkMode ? "dark-callout mb-5" : "mb-5"}>
           Let's first look at our interactions with these components.
           What if you don't have access to a mouse and must use a keyboard?
           What if you rely on a screen reader?
           A well designed component should allow varied inputs!</h5>
-        <Table>
+        <Table className={isDarkMode ? "table table-dark" : "table"} >
           <thead>
             <tr>
               <th className="w-10">#</th>
@@ -252,7 +267,7 @@ function App() {
           </tbody>
         </Table>
 
-        <h5 className="callout">
+        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
           In the table above we assign positive points for particularly helpful interaction features, and take off points for lacking accessibility. <br />
           Chrome comes out on top, and marks itself apart for its extra drag and drop functionality. ShellShock.io comes last, with very few keyboard inputs.<br />
           ShellShock.io may assume its users would have access to a mouse, considering the game is a fps. Chrome on the other hand caters to various users.
@@ -260,9 +275,9 @@ function App() {
         </h5>
       </div>
 
-      <div ref={section4Ref} className="section">
+      <div ref={section4Ref} className={isDarkMode ? "dark-section" : "section"}>
         <h2>Comparing Outputs</h2>
-        <Table striped>
+        <Table className={isDarkMode ? "table table-dark" : "table"} striped>
           <thead>
             <tr>
               <th className="w-10">#</th>
@@ -346,7 +361,7 @@ function App() {
             </tr>
           </tbody>
         </Table>
-        <h5 className="callout">
+        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
           For the most part, states are well indicated for all these components.
           Chrome and Spotify stand out by implementing a long hover functionality:
           For Chrome, the name of the item and its associated link pop up in a label.
@@ -362,26 +377,26 @@ function App() {
         </h5>
       </div>
 
-      <div ref={section5Ref} className="section">
+      <div ref={section5Ref} className={isDarkMode ? "dark-section" : "section"}>
         <h2>Inputs Redesign</h2>
         <h4>Spotify</h4>
-        <h5 className="callout">
+        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
           Shellshock.io's accessibility is poor, but fixing Spotify seems like a priority considering its wide user base.
           Let's improve its mouse/keypad state model first.
         </h5>
         <Image src={mouse_simple} rounded fluid />
-        <h5 className="callout">
+        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
           Let's draw from Chrome's good example and add a long hover state on which item links will be displayed.
           Like with Chrome bookmarks, users should be able to drag and drop these links if needed.
         </h5>
         <Image src={mouse_improved} rounded fluid />
       </div>
 
-      <div ref={section6Ref} className="section">
+      <div ref={section6Ref} className={isDarkMode ? "dark-section" : "section"}>
         <h2>Outputs Redesign</h2>
         <h4 className="mb-2"> Spotify</h4>
         <Image src={keyboard_simple} rounded fluid />
-        <h5 className="callout">
+        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
           For the keyboard inputs, let's fix the Spotify dropdown access order and enable opening the menu with tab.
           This will allow keyboard users to actually open and use the dropdown menu.
           Secondly, let's translate the long hover state described above to the active state, accessible with right and left arrow keys.
@@ -390,9 +405,9 @@ function App() {
 
       </div>
 
-      <div ref={section7Ref} className="section">
+      <div ref={section7Ref} className={isDarkMode ? "dark-section" : "section"}>
         <h2 className="mb-3">Look Redesign</h2>
-        <h5 className="callout mb-3">
+        <h5 className={isDarkMode ? "dark-callout mb-3" : "callout mb-3" }>
           Let's mock up this added long hover state. Additionally, let's improve the look of the menu button.
           While many users might be used to clicking on a profile photo to access the profile menu, newer users might not think to do so.
           Adding a small arrow in the same style as other Spotify icons should help hint at a dropdown.
@@ -416,28 +431,28 @@ function App() {
         </Row>
         <Row >
           <Col md={3} >
-            <h5 className="callout h-100" style={{ fontSize: "15px" }}>
+            <h5 className={isDarkMode ? "dark-callout h-100" : "callout h100"} style={{ fontSize: "15px" }}>
               Learnability <br /><br />
               Adding an arrow next to the profile picture improves learnability.
               It helps explicitly indicate that the user can interact with the profile picture/arrow.
             </h5>
           </Col>
           <Col md={3}>
-            <h5 className="callout h-100" style={{ fontSize: "15px" }}>
+            <h5 className={isDarkMode ? "dark-callout h-100" : "callout h100"} style={{ fontSize: "15px" }}>
               Memorability <br /><br />
               Keeping this new arrow in the same style as the other icons further promotes memorability.
               Once the user remembers these icons are actionable, they will remember the arrow is too.
             </h5>
           </Col>
           <Col md={3}>
-            <h5 className="callout h-100" style={{ fontSize: "15px" }}>
+            <h5 className={isDarkMode ? "dark-callout h-100" : "callout h100"} style={{ fontSize: "15px" }}>
               Efficiency <br /> <br />
               Both the profile picture and arrow can be selected to open the menu, maintaining a  quick interaction.
               Furthermore, the pop up for the external link may be drag and dropped, saving the user the effort of opening the link then copying it.
             </h5>
           </Col>
           <Col md={3}>
-            <h5 className="callout h-100" style={{ fontSize: "15px" }}>
+            <h5 className={isDarkMode ? "dark-callout h-100" : "callout h100"} style={{ fontSize: "15px" }}>
               Accessibility<br /> <br />
               Improving keyboard access and enabling tab and focus order vastly improves the component's accessibility.
               Previously, the user had to click on the menu button to open it, and only then could they use their keyboard to navigate the menu.
@@ -447,12 +462,12 @@ function App() {
 
       </div>
 
-      <div ref={section8Ref} className="section">
+      <div ref={section8Ref} className={isDarkMode ? "dark-section" : "section"}>
         <h2>Conclusion</h2>
         <h5>
           Where the observed components did well, and how it inspired my redesign
         </h5>
-        <h5 className="callout">
+        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
           A few of Chrome's functionalities stood out to me during this analysis. 
           Its pop up label helps users gain insight into the item content, and its drag and dropability improves efficiency. 
           I decided to reuse these elements in my redesign of the Spotify dropdown menu. The menu contains a number of outgoing links which the user may need visual or copy/paste access to.
@@ -460,7 +475,7 @@ function App() {
         <h5>
           How my design accounts for unaddressed accessibility considerations
         </h5>
-        <h5 className="callout">
+        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
           All the components I examined were less accessible to keyboard users. 
           Shellshock.io's only keyboard interaction was closing the menu with enter. 
           Chrome did much better, allowing navigation with arrow and enter/escape keys, but its dropdown menu and items are excluded from the focus order and unreachable with tab.
@@ -470,7 +485,7 @@ function App() {
         <h5>
           How my changes solve a mismatch in our world
         </h5>
-        <h5 className="callout">
+        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
           Before watching Kat Holmes' talk, I thought Spotify was the better app to improve of the three I examined. 
           An online video game like Shellshock.io is inherently ablist: users with the best reaction time ans the best attention to visual and auditive details will perform better. 
           A music streaming application like Spotify on the other hand has no excuse: Many more people, including deaf and hard of hearing people, can enjoy musical soundwaves.
@@ -482,7 +497,7 @@ function App() {
         <h5>
           Encountered examples of accessibility/inaccessibility of inputs or outputs and their positive/negative impact on users with impairments.
         </h5>
-        <h5 className="callout">
+        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
           1 positive: Chrome's superior implementation for screen readers will help visually impaired users better understand the menu items.
           <br/>
           3 negatives: Chrome, Shellshock.io, and Spotify's absence from the focus order however seriously impacts the same screen reader users who simply won't have access to the menus unless they use a mouse to open it.
@@ -491,7 +506,7 @@ function App() {
           Most commonly prioritized inputs (mouse, keyboard, touch/mobile) in component creation, and this decision's impact on user experience.
           {/* Between mouse, keyboard, touch/mobile, and screen reader users, which do you think are most commonly prioritized in the process of creating components? How might this impact the user experience? */}
         </h5>
-        <h5 className="callout">
+        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
           I think the typical order of priority in design goes something like this: <br/>
           1) mouse/touch/mobile 2) keyboard 3) screen reader <br/>
           
