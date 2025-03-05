@@ -1,17 +1,59 @@
+/* Jeff's CSS Reset -------------------*/
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img, picture, video, canvas, svg{
+  display: block;
+  max-width: 100%;
+}
+
+/* margin auto only for block elements */
+/* justify-content: x axis */
+/* align-items: y axis */
+/* flex box froggy to learn layout!! */
+/* ------------------------------------ */
+
 .top{
-  background-color : "#ffffff";
-  color : "#f2f2f2";
+  /* background-color : #ffffff; */
+  color : #212122;
   margin: 0rem;
   padding: 0;
   min-width: 100vw;
 }
 
 .dark-top{
-  background-color : "#000000";
-  color : "#2f2f2f";
+  /* background-color : #000000; */
+  color : #ededed;
   margin: 0rem;
   padding: 0;
   min-width: 100vw;
+
+}
+
+.navbar{
+  background-color: #f2f2f2;
+  padding: 0.2rem 0.5rem;
+  color: #525252;
+}
+
+
+.dark-navbar{
+  background-color: #212122;
+  padding: 0.2rem 0.5rem;
+  color: #f2f2f2;
+}
+
+.dark-navbar-items{
+  color: #f2f2f2;
+}
+
+.navbar-items{
+  color: #f2f2f2;
 }
 
 
@@ -29,8 +71,8 @@
 
 .dark-callout {
   word-break: break-word;
-  background-color: #151515;
-  color: #f2f2f2;
+  background-color: #2c3034;
+  color: #c4c4c4;
   border-radius: 10px;
   padding: 1rem;
   font-family: "Fira Code", monospace;
@@ -43,23 +85,28 @@
   min-height: 100vh;
   background: #f2f2f2;
   padding: 3rem;
-  padding-top: 2rem;
-  padding-left: 11rem;
-  padding-right: 11rem;
+  padding-top: 3rem;
+  padding-left: 14rem;
+  padding-right: 14rem;
+
 }
 
 .dark-section{
   overflow: hidden;
   min-height: 100vh;
-  background: #1f1f1f;
+  background: #212122;
   color: #f2f2f2;
   padding: 3rem;
-  padding-top: 2rem;
-  padding-left: 11rem;
-  padding-right: 11rem;
+  padding-top: 3rem;
+  padding-left: 14rem;
+  padding-right: 14rem;
 }
 
 .dark-card{
-  background-color: #171717;
+  background-color: #0d120e;
   color: #f2f2f2;
+}
+
+.dark-image{
+  filter: invert(1);
 }
