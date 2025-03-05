@@ -53,7 +53,7 @@ function AccessibleComponent() {
         margin: "0rem",
       }}
         >
-          <Accordion.Item eventKey="0"
+    <Accordion.Item eventKey="0"
           style={{
             backgroundColor: "transparent",
             border: "none"
