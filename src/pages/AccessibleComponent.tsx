@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef} from "react";
 import '../App.css';
 import mouse_simple from "../assets/mouse-simple.png"
 import mouse_improved from "../assets/mouse-improved.png"
@@ -15,7 +15,7 @@ import spotify_a from "../assets/spotify-abled.png"
 import spotify_d from "../assets/spotify-disabled.png"
 import shellshock_a from "../assets/shellshock-abled.png"
 import shellshock_d from "../assets/shellshock-disabled.png"
-import { Container, Row, Col, Button, Dropdown, DropdownButton, Image, Table, Card, Accordion, AccordionBody, Collapse } from 'react-bootstrap'
+import { Row, Col, Button, Dropdown, DropdownButton, Image, Table, Card, Accordion, AccordionBody} from 'react-bootstrap'
 import { useOutletContext } from "react-router-dom";
 
 interface OutletContext {

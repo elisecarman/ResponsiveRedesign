@@ -1,8 +1,7 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef} from "react";
 import '../App.css';
-import { Container, Row, Col, Button, Dropdown, DropdownButton, Image, Table, Card, Accordion, AccordionBody, Collapse } from 'react-bootstrap'
+import { Row, Col, Button, Image, Accordion, AccordionBody } from 'react-bootstrap'
 import { useOutletContext } from "react-router-dom";
-import Callout from "../components/Callout";
 
 import efia from "../assets/personas/efia.png"
 import yesenia from "../assets/personas/yesenia.png"
@@ -85,7 +84,6 @@ function Personas() {
             </Button>
             <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section5Ref)} className="w-100 mb-3" style={{ display: "block" }}>
             Interview 3
-
             </Button>
             <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section6Ref)} className="w-100 mb-3" style={{ display: "block" }}>
             Persona 1
@@ -104,7 +102,8 @@ function Personas() {
         </Accordion>
         
             <div ref={section1Ref} className={isDarkMode ? "dark-section" : "section"}>
-                <h1>Personas & Storyboarding</h1>
+                <h1 style={{marginBottom: "6rem"}}>Personas & Storyboarding</h1>
+                
                 <h5 className={isDarkMode ? "dark-callout" : "callout"}>
                     Who are supermarkets made for? Presumably, everybody! 
                     But people have varied schedules, diets, cooking styles, and household sizes! 
@@ -112,7 +111,7 @@ function Personas() {
                     A gigantic supermarket with every specialty item and every brand is incredible for the avid cook, 
                     but maybe an overstimulating maze for a in-and-out efficient shopper.
                     What sacrifices must be made?<br></br>
-                    Let's find out about different user behaviors in supermarkets, and find out more about our user needs!
+                    Let's study different user behaviors in supermarkets, and find out more about our user needs!
                 </h5>
                 
                 
@@ -162,11 +161,12 @@ function Personas() {
                         She snaked through the entire store, not missing a single aisle. 
                         She in particular walked up and back down the frozen aisle food, scanning one side at a time.
                         She did not look at her grocery list until the very end of her trip.
-                        She moved through the store systematically and with efficiency. She explored avery single aisle.
+                        She moved through the store systematically and with efficiency. She explored every single aisle.
                         She did not retrace her steps at any point for forgotten items, but she did redirect the flow of her path twice to avoid busy avenues. 
                         She meandered a bit more in the produce section, and briefly struggled to find mint. She was not tempted by any of the special temporary displays.
                     </h5>
                     <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                        Interview <br/><br/>
                         Yesenia loves cooking and grocery shopping. 
                         She loves being in control of her diet- for her the grocery store is a gallery of choices.
                         She has essentials she know to buy, but likes giving herself the opportunity to go off script. 
@@ -195,16 +195,15 @@ function Personas() {
                         She checked her grocery list several times throughout the trip, and spent the majority of the time in the produce section.
                         She traveled back and forth from shelf to shelf in the produce section, and struggled to find certain items: 
                         they had for example run out of Bok Choi and the green onions looked old. The store had also run out of high protein tofu.
-                        
-                        The produce she chose she put directly in her basket without plastic bags.
                         After selecting her produce, Efia semi snaked through the remaining aisles.
-                        She skipped certain sections entirely, and found her remaining items in much less time. She explore about 3/4 of the store's aisles
-                        She was tempted by one of the displays at the end of the aisle. She also grabbed a bar of dark chocolate before reaching checkout.
+                        She skipped certain sections entirely, and found her remaining items in much less time. She explored about 3/4 of the store's aisles.
+                        She was tempted by one of the displays at the end of the aisle. She also grabbed a bar of dark chocolate at checkout.
                     </h5>
                     <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                        Interview <br/><br/>
                         Efia spends a lot of time cooking. 
                         During her runs she buys mostly produce, and she'll shop once to twice a week. 
-                        She has go to recipes, but this week she has two new recipes she's excited about: Mango Curry and [].
+                        She has go to recipes, but this week she's excited to try a new Mango Curry recipe.
                         Efia follows a vegan diet, and does olympic powerlifting. 
                         Trader Joe's does not always have everything she needs, but she goes there for convenience.
                         Efia's go to quick meal is canned lentil soup, instead of anything frozen.
@@ -233,6 +232,7 @@ function Personas() {
                         He pointed out a box of brownies he loves, but did not buy it.
                     </h5>
                     <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                        Interview <br/><br/>
                         Alec does not cook as much this semester. 
                         He's on partial meal plan, and is looking for items to make good breakfasts, snacks, and sometimes fix dinner. He'll go grocery shopping about every 2 weeks.
                         He prefers Shaw's because of its large frozen fruit selection which he uses for his smoothies. 
@@ -247,98 +247,97 @@ function Personas() {
             </div>
             <div ref={section6Ref} className={isDarkMode ? "dark-section" : "section"}>
                 <h1>The king of the playground</h1>
-                <Row>
-                    <Col md={2}>
+                <Row style={{marginBottom: "2rem"}}>
+                    <Col>
+                    <Image src={king}></Image>
                     </Col>
-                    <Col md={2}>
-                    <div className="block">I have a good idea what I want to cook this week.</div>
-                    <div className="block">I wonder what seasonal produce and foods they have though!</div>
+                    <Col>
+                        <h4>Thinks</h4>
+                        <div className="block">I have a good idea what I want to cook this week.</div>
+                        <div className="block">Maybe I should have come at a less busy time, people are in my path</div>
+                        <div className="block">I hope they restocked their produce</div>
                     </Col>
-                    
-                    <Col md={4}>
-                    <Image style={{maxHeight:"450px"}} fluid src={king}></Image>
-                    </Col>
-                    <Col md={2}>
-                        <div className="block-2">Excited to try out new things.</div>
-                        <div className="block-2">Satisfied they know most of the store layout</div>
-                        <div className="block-2">Wishes the special displays showed less snacks and more interesting cooking items</div>
+                    <Col>
+                    <h4>Says</h4>
+                        <div className="block-2">See you this time next week!</div>
+                        <div className="block-2">I brought a list for good measure.</div>
+                        <div className="block-2">I'm excited to see what's new!</div>
 
                     </Col>
-                    <Col md={2}>
-                        <div className="block-2">Wishes the produce wouldn't switch around so much</div>
-                        <div className="block-2">Wishes there were a few more options available for their recipes</div>
-                        <div className="block-2">Feel in control</div>
-
+                    <Col>
+                   <h4>Feels</h4>
+                        <div className="block">I'm excited to see what's new! (So I keep track of changes and stay in control) </div>
+                        <div className="block">Wishes it was less crowded</div>
+                        <div className="block">Satisfied they know most of the store layout</div>
+                        <div className="block">Feel in control</div>
+                        <div className="block">Wishes the produce wouldn't switch around so much</div>
+                    </Col>
+                    <Col>
+                    <h4>Does</h4>
+                        <div className="block-2">Does not use the list too much, it's more of a formality.</div>
+                        <div className="block-2">This grocery trip is part of their routine. They blocked the time, and take the time to go through the whole store.</div>
+                        <div className="block-2">Have a clear idea where most usual products are</div>
+                        <div className="block-2">Spend a bit more time than they would like finding produce</div>     
                     </Col>
                 </Row>
-                <Row>
-                    <Col md={2}>
-                    </Col>
-                    <Col md={2}>
-                    <div className="block-2">I'll have the time to wander and peruse!</div>
-                    </Col>
-                    <Col md={2}>
-                    <div className="block-2">Maybe I should have come at a less busy time, people are in my path</div>
-                    <div className="block-2">I brought a list just in case.</div>
-
-                    </Col>
-                    <Col md={2}>
-                    <div className="block">Surprisingly does not look much at the special displays</div>
-                    <div className="block">This grocery trip is part of their routine. They blocked the time, and take the time to go through the whole store.</div>
-                    </Col>
-                    <Col md={2}>
-                    
-                    <div className="block">Somehow shops in record time despite perusing </div>
-                    <div className="block">Have a clear idea where most usual products are</div>           
-                    </Col>
-                    <Col md={2}>
-                    <div className="block">Spend a bit more time than they would like finding produce</div>           
-                           
-                    </Col>
-                </Row>
+                <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    1) From our interviews, one persona emerges: the master of groceries, the kind of the playground. This persona does not like their routine disturbed!
+                    They have a good handle on their preferred grocery store. If they are going to deviate from routine, it's going to be on their terms.
+                    <br/>
+                    <br/>
+                    2)They don't like when items move around, notably in the produce and frozen foods sections. They dislike busy aisles and hope they don't have to deviate from their path.
+                    The store will have to accommodate these users by keeping item organization as constant as possible. If the store introduces new items, it should be in a non-intrusive way.
+                    <br/>
+                    <br/>
+                    3)Busy professionals and parents who rely on a system fall into this persona: they need their routine to function!
+                </h5>
 
             </div>
             <div ref={section7Ref} className={isDarkMode ? "dark-section" : "section"}>
             <h1>The mouse</h1>
-            <Row>
-                    <Col md={2}>
-                    <div className="block">I want a little snack</div>
+                <Row style={{marginBottom: "2rem"}}>
+                    <Col>
+                    <h4>Thinks</h4>
+                    <div className="block-2">I want a little snack</div>
+                    <div className="block-2">I really have to hurry!</div>
+                    <div className="block-2">I'm not 100% sure what I'll get, but I have an idea</div>
+                    <div className="block-2">If I can't find this item easily, I'll give up pretty fast</div>
                     </Col>
-                    <Col md={2}>
-                    <div className="block">I'm not planning to buy much today</div>
+                    <Col>
+                    <h4>Says</h4>
+                    <div className="block">I'll just be in and out, and won't buy much</div>
+                    <div className="block">This store is huge!</div>
                     </Col>
-                    <Col md={4}>
-                    <Image fluid src={mouse}></Image>
-                    </Col>
-                    <Col md={2}>
-                    <div className="block-2">Wishes it was less crowded today</div>
-                    </Col>
-                    <Col md={2}>
-                    <div className="block-2">Does not know the whole store, but just enough to get in and out efficiently</div>
+                    <Col>
+                   <h4>Feels</h4>
+                    <div className="block-2">Does not know the whole store, maybe just enough to get in and out efficiently</div>
                     <div className="block-2">Stressed they'll make it on time to their next commitment</div>
+                        
+                    </Col>
+                    <Col>
+                    <h4>Does</h4>
+                    <div className="block">Ends up buying more than expected</div>
+                    <div className="block">Gets tempted by the special offers and sweet treats</div>
+                    <div className="block">Shop irregularly, whenever possible. They're not mentally ready to spend a lot of time shopping.</div>      
 
                     </Col>
-            </Row>
-            <Row>
-                <Col md={2}>
-                <div className="block-2">I'll just be in and out, and won't buy much</div>
-                </Col>
-                <Col md={2}>
-                <div className="block-2">I'm not 100% sure what I have at home</div>
-                </Col>
-                <Col md={2}>
-                <div className="block-2">Honestly if they moved this item around I wouldn't go looking for it</div>
-                </Col>
-                <Col md={2}>
-                <div className="block">Ends up buying more than expected</div>
-                </Col>
-                <Col md={2}>
-                <div className="block">Gets tempted by the special offers and sweet treats</div>
-                </Col>
-                <Col md={2}>
-                <div className="block">Shop irregularly, whenever possible. They're not mentally ready to spend a lot of time shopping.</div>      
-                </Col>
-            </Row>
+                    <Col>
+                    <Image src={mouse}></Image>
+                    </Col>
+                </Row>
+                <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    1) The  mouse persona is unfamiliar with the store. They have gone a couple times at most, and know of some of the items they need.
+                    They aren't looking to cook much, but need just a few items to get by. They go off plan easily.
+                    <br/>
+                    <br/>
+                    2) They aren't particularly bothered by moving produce or moving items, but are overwhelmed in general. 
+                    The mouse persona have little time, little knowledge of the place, and need to get in and out quickly. 
+                    The store will have to guide these infrequent users as best as possible. The store may also take advantage of the opportunity to entice them with special displays and treats.
+                    <br/>
+                    <br/>
+                    3) The people falling into the mouse persona are not looking to cook and may be students on partial meal plans or travelers. 
+                    They don't have much time and are fitting this grocery run in between activities.
+                </h5>
 
             </div>
             <div ref={section8Ref} className={isDarkMode ? "dark-section" : "section"}>
@@ -350,21 +349,20 @@ function Personas() {
                     <Col>
                     <Image src={one}></Image>
                     <h5 className="callout">
-                        The king of the playground enters the super market, reusable bag in one hand, list in the other.
+                        The king of the playground enters the super market, reusable bag in one hand, list in the other. Same time, every week.
                     </h5>
                     </Col>
                     <Col>
                     <Image src={two}></Image>
                     <h5 className="callout">
-                        They tackle the produce section first. This part is the most challenging for most:
-                        The produce moves around and is sometimes unavailable or old. Hard to stick to plan!
+                        They tackle the produce section first. This is where things tend to go off plan: they hope what they need is there and they can find it quick!
                     </h5>
                     </Col>
                     <Col>
                     <Image src={three}></Image>
                     <h5 className="callout">
-                        Phew, produce is over. Onto the frozen food section! This also changes around a lot. Let's scan carefully. 
-                        They see a bag of frozen vegetables they haven't tried yet!
+                        Phew, produce is over. Onto the frozen food section! This also changes around a lot. Let's scan both sides carefully. 
+                        In the face of irregularity, we use a system.
                     </h5>
                     </Col>
                 </Row>
@@ -372,14 +370,14 @@ function Personas() {
                     <Col>
                     <Image src={four}></Image>
                     <h5 className="callout">
-                        Darn, a worker is restocking this next aisle and it's quite busy too. They'd rather keep things moving and keep things moving.
+                        Darn, a worker is restocking this next aisle and it's quite busy too. They'd rather alter their shopping path than sacrifice their efficient browsing.
                     </h5>
                     </Col>
                     <Col>
                     <Image src={five}></Image>
                     <h5 className="callout">
                         Alright, we just got 3 more aisles to go. Swinging by the spices reminds them their household is running out of salt. 
-                        They also see a bread their friend recommended.
+                        They also see a bread their friend recommended. Snaking through all the aisles allowed them to remember both these things.
                     </h5>
                     </Col>
                     <Col>
@@ -393,7 +391,7 @@ function Personas() {
                 <Col>
                     <Image src={seven}></Image>
                     <h5 className="callout">
-                        They skip over the appealing sweats and other snacks at checkout, and pay!
+                        They usually skip over the appealing sweats and other snacks at checkout, and pay!
                     </h5>
                 </Col>
                 <Col></Col>
@@ -401,9 +399,13 @@ function Personas() {
                 </Row>
             </div>
             <div ref={section9Ref} className={isDarkMode ? "dark-section" : "section"}>
-                <h1>Conclusion</h1>
+                <h1 style={{marginBottom: "4rem"}}>Conclusion</h1>
                 <h5 className={isDarkMode ? "dark-callout" : "callout"}>
-                    heck ya
+                    The mouse and the king are very different grocery store users, yet stores must do their best to accommodate both.
+                    To accommodate the mouse, stores will follow a universal layout. They'll furthermore put like items together, and labels aisles in a helpful way.
+                    To accommodate the king, the store must introduce change gracefully. 
+                    Introducing too much unfamiliarity and disorder will ruin the king's shopping experience, who may stop being a loyal customer.
+                    The store introduces new products with special displays, which is a good compromise, but they could do a better job communicating with the king when certain seasonal products will be sold, amongst other changes.
                 </h5>
             </div>
             
