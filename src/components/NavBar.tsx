@@ -11,7 +11,7 @@ function NavBar({ isDarkMode }: NavBarProps) {
     return(
         <Navbar className={isDarkMode ? 'navbar-dark dark-navbar fixed-top' : 'navbar fixed-top'}>
             <Navbar.Brand className={isDarkMode ? "dark-navbar-items" : "navbar-items"} as={Link} to='/InteractionDesign-New/AccessibleComponent'>
-            Home
+            {/* Home */}
             </Navbar.Brand>
             <Nav className='ms-auto'>
                 <Nav.Link as={Link} to='/InteractionDesign-New/AccessibleComponent'>
