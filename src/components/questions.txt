@@ -1,0 +1,106 @@
+How often do you go grocery shopping?
+Y: every week
+E: once to twice a week
+A: about every two weeks
+
+What do you usually buy? What sections of the store do you use the most?
+Y: bit of everything, try different stuff, check the whole store
+E: a lot of produce, other cooking condiments, and some sweets. Does not look at frozen foods or meat
+A: A lot for snacks and some meal material. Will spend more time in breakfast foods in frozen
+
+How often do you go to this store?
+Y: My go to!
+E: my go to
+A: a bit new to this store but have been going for their frozen foods
+
+How long do you spend grocery shopping. Can you break down the time?
+Y: 5 minute walk there, 25 minutes walk around 5 minutes walk back. Will usually put aside a whole hour
+E: 5 minute car ride (with roommate), 15 minute walk there + back. 40 minutes shopping
+A: 15 minutes car ride, Does not have an expectation of how much time to spend, hopefully as little as possible
+
+How do you choose the items you buy?
+Y: have go to recipes and items, as well as new recipe she likes to try out. 
+She'll peruse the whole store to remember what she needs and to check out new stuff.
+She has a list, but she'll only check it at the end just in case
+E: Has go to recipe as well as special recipes in mind for the week. 
+She'll regularly check her shopping list because she jumps from section to section
+A: Has a good idea of the items he wants, but sometimes he'll come across other items and modify the list/ add it to the list.
+
+How do you usually make your way through the store?
+Y: snake through every single aisle, back and worth for some sections which move around
+E: no snaking, just from list item to list item. Spend a lot of time in the produce section
+A: semi snaking, just hitting categories he is interested in
+
+How did you feel the last time you grocery shopped?
+Y: good! I love grocery shopping, I like the feeling of control
+E: a bit frustrated a lot of the produce I needed was missing. It's always a bit unpredictable
+A: Alright, I bought a bit more than I needed, so didn't meet the budget. 
+I was also a bit stressed about time and struggled to find some items.
+
+Is there anything you wish went differently today?
+Y: that worker was in my path and it was defintely a bit crowded
+E: Some of the produce was missing but also other items I needed. 
+I also spent so much time looking for things I missed a few items
+A: This store is so big and I need to walk a ton when I don't need to get that many things
+
+
+
+
+How often do you go grocery shopping?
+What do you usually buy?
+How often do you go to this grocery store?
+How much time do you want to spend grocery shopping?
+Do you usually find all the items you need?
+Do you like buying from special displays?
+Do you have a plan on items to buy going into the store?
+Do you have a path you like to take?
+What kinds of items do you buy? What store sections do you spend most of your time in?
+Could you describe your path through the store for me?
+Do you have a store of choice?
+How long do you have for grocery shopping total (including travel time)
+What makes you happy when grocery shopping?
+What % of the store are you familiar with?
+How did you feel the last time you grocery shopped?
+How do you choose and remember what items to buy
+
+Pain points:
+Do you usually meet your goal time?
+Do you ever forget items?
+Do you usually meet your budget goal?
+Do you successfully get the items you need to buy?
+How familiar/ confident finding items in your store of choice?
+
+
+What is the first thing you do in a grocery store
+What is the last thing you do
+
+TODO:
+edit interview sections to reflect questions
+temper with Alec interview and behavior to reflect mouse
+
+
+Interview <br/><br/>
+Yesenia loves cooking and grocery shopping. 
+She loves being in control of her diet- for her the grocery store is a gallery of choices.
+She has essentials she know to buy, but likes giving herself the opportunity to go off script. 
+She'll walk through every aisle to see about new items.
+She'll check out both sides of the frozen foods section carefully because the items move around a lot. 
+She likes giving herself access to her favorite foods by cooking: This week she's making Mexican meatballs, a home favorite.                         
+She makes both prep intensive dinners ( a lot of soup) and quick frozen foods dinners. 
+She tends to grocery shop once a week. Trader Joe's is a convenient short walk away for her.
+
+
+
+final list:
+How often do you go grocery shopping?
+What do you usually buy? What sections of the store do you use the most?
+How often do you go to this store?
+How long do you spend grocery shopping. Can you break down the time?
+How do you choose the items you buy?
+How do you usually make your way through the store?
+How did you feel the last time you grocery shopped?
+Is there anything you wish went differently today?
+
+
+                    
+                    

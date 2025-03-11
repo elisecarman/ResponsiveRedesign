@@ -20,7 +20,6 @@ import supermarket from "../assets/personas/supermarket.png"
 
 
 
-
 interface OutletContext {
     isDarkMode: boolean;
 }
@@ -109,7 +108,7 @@ function Personas() {
                     But people have varied schedules, diets, cooking styles, and household sizes! 
                     How can one possibly design an interface to satisfy most, if not all?
                     A gigantic supermarket with every specialty item and every brand is incredible for the avid cook, 
-                    but maybe an overstimulating maze for a in-and-out efficient shopper.
+                    but maybe an overstimulating maze for an in-and-out efficient shopper.
                     What sacrifices must be made?<br></br>
                     Let's study different user behaviors in supermarkets, and find out more about our user needs!
                 </h5>
@@ -125,7 +124,7 @@ function Personas() {
                         It's surprisingly universal! <br/>
                         You'll usually encounter the following elements
                     </h4>
-                        <Image src={supermarket}/>
+                        <Image className={isDarkMode ? "dark-image" : ""} src={supermarket}/>
                     </Col>
                     <Col md={4}>
                     
@@ -150,12 +149,22 @@ function Personas() {
             </div>
             <div ref={section3Ref} className={isDarkMode ? "dark-section" : "section"}>
                 <Row>
-                    <Col md={4}>
-                    <h1>Yesenia</h1>
-                    <Image style={{maxHeight:"600px"}} fluid src={yesenia}></Image>
+                <h1>Yesenia</h1>
+
+                    <Col className="mb-5" md={4}>
+                    <Image className={isDarkMode ? "dark-image" : ""} style={{maxHeight:"600px"}} fluid src={yesenia}></Image>
+                    
                     </Col>
-                    <Col>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    <Col >
+                    <h5  className={isDarkMode ? "dark-callout" : "callout"}>
+                        <i>Interview TLDR<br/>
+                        Yesenia is an enthusiastic cook and an organized and regular shopper. 
+                        She has a good lay of the land of her favorite store, and enjoys the routine of grocery shopping.
+                        She has a very systemic way of traveling through the store, allowing her to both stick to a plan and adapt to change.
+                        Yesenia dislikes deviations from her routine, like changing her path because of busy aisles.
+                        </i>
+                    </h5>
+                    <h5  className={isDarkMode ? "dark-callout" : "callout"}>
                         Behavior <br/><br/>
                         Yesenia shopped at Trader Joe's on a Sunday morning. The store was bustling, but well provisioned. 
                         She snaked through the entire store, not missing a single aisle. 
@@ -165,30 +174,71 @@ function Personas() {
                         She did not retrace her steps at any point for forgotten items, but she did redirect the flow of her path twice to avoid busy avenues. 
                         She meandered a bit more in the produce section, and briefly struggled to find mint. She was not tempted by any of the special temporary displays.
                     </h5>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
-                        Interview <br/><br/>
-                        Yesenia loves cooking and grocery shopping. 
-                        She loves being in control of her diet- for her the grocery store is a gallery of choices.
-                        She has essentials she know to buy, but likes giving herself the opportunity to go off script. 
-                        She'll walk through every aisle to see about new items.
-                        She'll check out both sides of the frozen foods section carefully because the items move around a lot. 
-                        She likes giving herself access to her favorite foods by cooking: This week she's making Mexican meatballs, a home favorite.                         
-                        She makes both prep intensive dinners ( a lot of soup) and quick frozen foods dinners. 
-                        She tends to grocery shop once a week. Trader Joe's is a convenient short walk away for her.
-                    </h5>
+                    
                     </Col>
+
+                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    Interview <br/><br/>
+                    <b>
+                    How often do you go grocery shopping?
+                    </b><br/>
+                    I go about once a week, around the same day and time. It's a normal part of my routine.
+                    <br/><b>
+                    What do you usually buy? What sections of the store do you use the most?
+                    </b><br/>
+                    I buy a bit of everything! I buy produce, meats, dairy, frozen foods, breads, snacks. I love checking out all the aisles and seeing if anything new calls to me.
+                    <br/><b>
+                    How often do you go to this store?
+                    </b><br/>
+                    This store is my go to. I am very familiar with it, and know the spot of nearly every item. The produce and frozen sections are trickier for me because the items move around all the time.
+                    <br/><b>
+                    How long do you spend grocery shopping. Can you break down the time?
+                    </b><br/>
+                    I walk 5 minutes there and 5 minutes back, which leaves me with a good amount of time to browse. I put aside about 40 minutes for the whole trip, but I'm usually more efficient than that.
+                    <br/><b>
+                    How do you choose the items you buy?
+                    </b><br/>
+                    I have produce I buy every week that I make most of my recipes with. 
+                    I also have special recipes in my mind for the week for which I brought a grocery list.
+                    I'll walk through every aisle to get tempted by different foods and remember the items I need as I see them.
+                    I'll only check the list at the end of the trip to check I didn't miss anything.
+                    <br/><b>
+                    How do you usually make your way through the store?
+                    </b><br/>
+                    I like to snake through all of the aisles. The store is small enough that doing so doesn't take much time. 
+                    For sections that are unpredictable, like produce or frozen foods, I'll scan both sides of the aisle, walking down then back up.
+                    <br/><b>
+                    How did you feel shopping today?
+                    </b><br/>
+                    I felt pretty good! I love grocery shopping, and I feel like I have the hang of it here. I like being in control of my shopping and my diet.
+                    <br/><b>
+                    Is there anything you wish went differently today?
+                    </b><br/>
+                    The store was quite busy! In an ideal world I would shop without worrying as much about other customers or employees.
+                    </h5>
                 </Row>
                 
             </div>
             <div ref={section4Ref} className={isDarkMode ? "dark-section" : "section"}>
                 
                 <Row>
-                    <Col md={4}>
                     <h1>Efia</h1>
-                    <Image style={{maxHeight:"600px"}} fluid src={efia}></Image>
+                    <Col className="mb-5" md={4}>
+                    
+                    <Image className={isDarkMode ? "dark-image" : ""} style={{maxHeight:"600px"}} fluid src={efia}></Image>
+                    
                     </Col>
                     <Col>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    <h5 className={isDarkMode ? "dark-callout h100" : "callout h100"}>
+                        <i>
+                            Interview TLDR <br/>
+                            Efia is an avid cook and a very frequent shopper. 
+                            She is well acquainted with the store, but can be slowed down by an unpredictable produce section.
+                            Because of her vegan diet, Efia is significantly more impacted by the flaws of the produce section.
+                            Otherwise, she shops efficiently through the rest of the store. 
+                        </i>
+                    </h5>
+                    <h5 className={isDarkMode ? "dark-callout h100" : "callout h100"}>
                         Behavior <br/><br/>
                         Efia shopped at Trader Joe's around 8pm on a Tuesday night. 
                         The store had few customers, and the store seemed low on produce. 
@@ -199,89 +249,165 @@ function Personas() {
                         She skipped certain sections entirely, and found her remaining items in much less time. She explored about 3/4 of the store's aisles.
                         She was tempted by one of the displays at the end of the aisle. She also grabbed a bar of dark chocolate at checkout.
                     </h5>
+                    
+                    </Col>
                     <h5 className={isDarkMode ? "dark-callout" : "callout"}>
                         Interview <br/><br/>
-                        Efia spends a lot of time cooking. 
-                        During her runs she buys mostly produce, and she'll shop once to twice a week. 
-                        She has go to recipes, but this week she's excited to try a new Mango Curry recipe.
-                        Efia follows a vegan diet, and does olympic powerlifting. 
-                        Trader Joe's does not always have everything she needs, but she goes there for convenience.
-                        Efia's go to quick meal is canned lentil soup, instead of anything frozen.
-                        One of the things Efia loves more about grocery shopping is coming home with beautiful produce.
-                        She doesn't put it in bags because it "kills the vibe".
+                        <b>
+                    How often do you go grocery shopping?
+                    </b><br/>
+                    I go about once or twice a week. I have one scheduled weekly time where I shop. 
+                    The second time I go is a more unpredictable, wherever I can fit the time.
+                    I shop a lot because I cook a lot: I do olympic lifting, and spending the time to get the right food in my body has felt really good.
+                    <br/><b>
+                    What do you usually buy? What sections of the store do you use the most?
+                    </b><br/>
+                    I buy a lot of produce and canned goods. I switched to a vegan diet, so I'll skip out on meats and dairy. I also don't buy much frozen foods.
+                    I skip a lot of sections of the store, and tend to just go to the items I know I need. 
+                    <br/><b>
+                    How often do you go to this store?
+                    </b><br/>
+                    This store is my go to. I go to another store sometimes because they have more produce options, but this one is more convenient.
+                    I am pretty familiar with it as this point!
+                    <br/><b>
+                    How long do you spend grocery shopping. Can you break down the time?
+                    </b><br/>
+                    It's a 15 minutes walk for me, unless my roommate gives me a ride. I'd say it usually takes me about 40 minutes. 
+                    Sometimes I have to go hunting around the produce section for some time.
+                    <br/><b>
+                    How do you choose the items you buy?
+                    </b><br/>
+                    I prepare a list with items for recipes I want to do this week. I'll look at my list throughout the trip.
+                    Sometimes I'll buy a few extra things too, if tempted.
+                    <br/><b>
+                    How do you usually make your way through the store?
+                    </b><br/>
+                    I usually look at the next item on the list and head that way. When I write my list I also try grouping items by type.
+                    <br/><b>
+                    How did you feel shopping today?
+                    </b><br/>
+                    I honestly felt pretty stressed. I arrived close to closing time and had to rush to get my things. 
+                    Even though I have my list and a good idea of the store layout, I just spent so much time looking for produce only to have a good amount of it look bad or have run out.
+                    <br/><b>
+                    Is there anything you wish went differently today?
+                    </b><br/>
+                    I was so pressed for time I forgot quite a few items on my list/ didn't have time to get to them. I'll have to come back for them later this week.
                     </h5>
-                    </Col>
                 </Row>
             </div>
             <div ref={section5Ref} className={isDarkMode ? "dark-section" : "section"}>
                 <Row>
-                    <Col md={4}>
-                    <h1>Alec</h1>
-                    <Image style={{maxHeight:"600px"}} fluid src={alec}></Image>
+                <h1>Alec</h1>
+
+                    <Col className="mb-5" md={4}>
+                    <Image className={isDarkMode ? "dark-image" : ""} style={{maxHeight:"600px"}} fluid src={alec}></Image>
+                    
                     </Col>
                     <Col>
+                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                        <i>
+                            Interview TLDR <br/>
+                            Alec is an irregular shopper. Grocery shopping is not part of his routine, and he isn't familiar with his store yet.
+                            He doesn't have much time to invest into cooking or grocery shopping, and the trip tends to be stressful.
+                            Despite the store's familiar layout and helpful signs, finding items still takes him longer than wanted.
+                        </i>
+                    </h5>
                     <h5 className={isDarkMode ? "dark-callout" : "callout"}>
                         Behavior <br/><br/>
                         Alec shopped at Shaw's on a Sunday around 5pm.
                         The very large supermarket did not appear particularly busy. 
-                        Alec only checked his grocery list at the very end of the trip.
+                        Alec checked his grocery list a couple times throughout the trip.
                         He started in the produce section and traveled back and forth a bit there. 
-                        Eventually Alec semi snaked through the rest of the store. 
-                        He did not backtrack for a single item, and did not have to redirect his course due to obstacles. 
+                        Eventually Alec semi snaked through the rest of the store.
+                        He took some time reading the signs and finding the correct aisles. He backtracked a little to find items he missed, but did not have to redirect his course due to obstacles. 
+                        He grabbed a couple items which were not on his list.
                         He explored a 1/4 of the store's aisles, before swinging by the pastries and sweets section before checkout.
-                        He pointed out a box of brownies he loves, but did not buy it.
+                        He pointed out a box of brownies and bought it.
                     </h5>
+                    
+                    </Col>
                     <h5 className={isDarkMode ? "dark-callout" : "callout"}>
                         Interview <br/><br/>
-                        Alec does not cook as much this semester. 
-                        He's on partial meal plan, and is looking for items to make good breakfasts, snacks, and sometimes fix dinner. He'll go grocery shopping about every 2 weeks.
-                        He prefers Shaw's because of its large frozen fruit selection which he uses for his smoothies. 
-                        He also loves the brand options, something Trader Joe's does not have.
-                        Thanks to his car, going to Shaw's only takes 15 minutes. 
-                        Alex does not have an intense list when shopping: he tends to buy the same things, and he has an idea of what he wants this week.
-                        He expected to buy relatively little on this trip, but unexpectedly walked out with two bags.
-
+                        <b>
+                    How often do you go grocery shopping?
+                    </b><br/>
+                    I go pretty irregularly, about every 2 weeks. 
+                    I'm on partial meal plan this semester and am trying to make the most of my swipes.
+                    I'll make breakfast and some dinners (I'm far from the dining halls), so I pick up a few items.
+                    <br/><b>
+                    What do you usually buy? What sections of the store do you use the most?
+                    </b><br/>
+                    I have some go tos for breakfast, but I tend to go off plan. 
+                    I buy different things from trip to trip, except for frozen fruits: I make my smoothies regularly with them.
+                    I'm not too familiar with every section here, I just know where some of my favorite items are, which is a bit spread out throughout the store.
+                    <br/><b>
+                    How often do you go to this store?
+                    </b><br/>
+                    I go to Shaw's for their frozen food selection (Trader Joe's is much more limited). 
+                    But I haven't gone that many times.
+                    I'm not entirely familiar with the store yet, and it takes me a while to find new items.
+                    <br/><b>
+                    How long do you spend grocery shopping. Can you break down the time?
+                    </b><br/>
+                    It takes me about 15 minutes to get there by car. I haven't really timed myself before, I tend to go in between time commitments.
+                    I try to go as fast as possible, but it always takes me a bit longer than I anticipate. I'd say it take me about 30 minutes to find what I need once in the store.
+                    <br/><b>
+                    How do you choose the items you buy?
+                    </b><br/>
+                    I have a list I prepare, but I often end up buying additional things. <br/><b>
+                    How do you usually make your way through the store?
+                    </b><br/>
+                    I don't travel from item to item on my list, I'm not familiar enough with the layout to do that. 
+                    I end up snaking through the aisles, which makes finding things easier but also takes some time with such a big store.
+                    I also end up coming across other interesting items.
+                    <br/><b>
+                    How did you feel shopping today?
+                    </b><br/>
+                    Just a bit stressed! I never have that much time to spend here.
+                    <br/><b>
+                    Is there anything you wish went differently today?
+                    </b><br/>
+                    This store just feels too big sometimes.
                     </h5>
-                    </Col>
                 </Row>
             </div>
             <div ref={section6Ref} className={isDarkMode ? "dark-section" : "section"}>
                 <h1>The king of the playground</h1>
                 <Row style={{marginBottom: "2rem"}}>
                     <Col>
-                    <Image src={king}></Image>
+                    <Image className={isDarkMode ? "dark-image" : ""} src={king}></Image>
                     </Col>
                     <Col>
                         <h4>Thinks</h4>
-                        <div className="block">I have a good idea what I want to cook this week.</div>
-                        <div className="block">Maybe I should have come at a less busy time, people are in my path</div>
-                        <div className="block">I hope they restocked their produce</div>
+                        <div className="dark-block">I have a good idea what I want to cook this week.</div>
+                        <div className="dark-block">Maybe I should have come at a less busy time, people are in my path</div>
+                        <div className="dark-block">I hope they restocked their produce</div>
                     </Col>
                     <Col>
                     <h4>Says</h4>
-                        <div className="block-2">See you this time next week!</div>
-                        <div className="block-2">I brought a list for good measure.</div>
-                        <div className="block-2">I'm excited to see what's new!</div>
+                        <div className="dark-block-2">See you this time next week!</div>
+                        <div className="dark-block-2">I brought a list for good measure.</div>
+                        <div className="dark-block-2">I'm excited to see what's new!</div>
 
                     </Col>
                     <Col>
                    <h4>Feels</h4>
-                        <div className="block">I'm excited to see what's new! (So I keep track of changes and stay in control) </div>
-                        <div className="block">Wishes it was less crowded</div>
-                        <div className="block">Satisfied they know most of the store layout</div>
-                        <div className="block">Feel in control</div>
-                        <div className="block">Wishes the produce wouldn't switch around so much</div>
+                        <div className="dark-block">I'm excited to see what's new! (So I can keep track of changes and stay in control) </div>
+                        <div className="dark-block">Wishes it was less crowded</div>
+                        <div className="dark-block">Satisfied they know most of the store layout</div>
+                        <div className="dark-block">Feel in control</div>
+                        <div className="dark-block">Wishes the produce wouldn't switch around so much</div>
                     </Col>
                     <Col>
                     <h4>Does</h4>
-                        <div className="block-2">Does not use the list too much, it's more of a formality.</div>
-                        <div className="block-2">This grocery trip is part of their routine. They blocked the time, and take the time to go through the whole store.</div>
-                        <div className="block-2">Have a clear idea where most usual products are</div>
-                        <div className="block-2">Spend a bit more time than they would like finding produce</div>     
+                        <div className="dark-block-2">Does not use the list too much, it's more of a formality.</div>
+                        <div className="dark-block-2">This grocery trip is part of their routine. They blocked the time, and take the time to go through the whole store.</div>
+                        <div className="dark-block-2">Have a clear idea where most usual products are</div>
+                        <div className="dark-block-2">Spend a bit more time than they would like finding produce</div>     
                     </Col>
                 </Row>
                 <h5 className={isDarkMode ? "dark-callout" : "callout"}>
-                    1) From our interviews, one persona emerges: the master of groceries, the kind of the playground. This persona does not like their routine disturbed!
+                    1) From our interviews, one persona emerges: the master of groceries, the king of the playground. This persona does not like their routine disturbed!
                     They have a good handle on their preferred grocery store. If they are going to deviate from routine, it's going to be on their terms.
                     <br/>
                     <br/>
@@ -289,7 +415,8 @@ function Personas() {
                     The store will have to accommodate these users by keeping item organization as constant as possible. If the store introduces new items, it should be in a non-intrusive way.
                     <br/>
                     <br/>
-                    3)Busy professionals and parents who rely on a system fall into this persona: they need their routine to function!
+                    3)Busy professionals and parents who rely on a system fall into this persona: they need their routine to function! Both Yesenia and Efia fall into this category. 
+                    Because Efia buys more produce, she'll be a more frustrated customer than Yesenia, despite being equally organized and familiar with the store.
                 </h5>
 
             </div>
@@ -298,31 +425,31 @@ function Personas() {
                 <Row style={{marginBottom: "2rem"}}>
                     <Col>
                     <h4>Thinks</h4>
-                    <div className="block-2">I want a little snack</div>
-                    <div className="block-2">I really have to hurry!</div>
-                    <div className="block-2">I'm not 100% sure what I'll get, but I have an idea</div>
-                    <div className="block-2">If I can't find this item easily, I'll give up pretty fast</div>
+                    <div className="dark-block-2">I want a little snack</div>
+                    <div className="dark-block-2">I really have to hurry!</div>
+                    <div className="dark-block-2">I'm not 100% sure what I'll get, but I have an idea</div>
+                    <div className="dark-block-2">If I can't find this item easily, I'll give up pretty fast</div>
                     </Col>
                     <Col>
                     <h4>Says</h4>
-                    <div className="block">I'll just be in and out, and won't buy much</div>
-                    <div className="block">This store is huge!</div>
+                    <div className="dark-block">I'll just be in and out, and won't buy much</div>
+                    <div className="dark-block">This store is huge!</div>
                     </Col>
                     <Col>
                    <h4>Feels</h4>
-                    <div className="block-2">Does not know the whole store, maybe just enough to get in and out efficiently</div>
-                    <div className="block-2">Stressed they'll make it on time to their next commitment</div>
+                    <div className="dark-block-2">Does not know the whole store, maybe just enough to get in and out efficiently</div>
+                    <div className="dark-block-2">Stressed they'll make it on time to their next commitment</div>
                         
                     </Col>
                     <Col>
                     <h4>Does</h4>
-                    <div className="block">Ends up buying more than expected</div>
-                    <div className="block">Gets tempted by the special offers and sweet treats</div>
-                    <div className="block">Shop irregularly, whenever possible. They're not mentally ready to spend a lot of time shopping.</div>      
+                    <div className="dark-block">Ends up buying more than expected</div>
+                    <div className="dark-block">Gets tempted by the special offers and sweet treats</div>
+                    <div className="dark-block">Shop irregularly, whenever possible. They're not mentally ready to spend a lot of time shopping.</div>      
 
                     </Col>
                     <Col>
-                    <Image src={mouse}></Image>
+                    <Image className={isDarkMode ? "dark-image" : ""} src={mouse}></Image>
                     </Col>
                 </Row>
                 <h5 className={isDarkMode ? "dark-callout" : "callout"}>
@@ -347,20 +474,20 @@ function Personas() {
                 </h5>
                 <Row>
                     <Col>
-                    <Image src={one}></Image>
-                    <h5 className="callout">
+                    <Image className={isDarkMode ? "dark-image" : ""} src={one}></Image>
+                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
                         The king of the playground enters the super market, reusable bag in one hand, list in the other. Same time, every week.
                     </h5>
                     </Col>
                     <Col>
-                    <Image src={two}></Image>
-                    <h5 className="callout">
+                    <Image className={isDarkMode ? "dark-image" : ""} src={two}></Image>
+                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
                         They tackle the produce section first. This is where things tend to go off plan: they hope what they need is there and they can find it quick!
                     </h5>
                     </Col>
                     <Col>
-                    <Image src={three}></Image>
-                    <h5 className="callout">
+                    <Image className={isDarkMode ? "dark-image" : ""} src={three}></Image>
+                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
                         Phew, produce is over. Onto the frozen food section! This also changes around a lot. Let's scan both sides carefully. 
                         In the face of irregularity, we use a system.
                     </h5>
@@ -368,29 +495,29 @@ function Personas() {
                 </Row>
                 <Row>
                     <Col>
-                    <Image src={four}></Image>
-                    <h5 className="callout">
+                    <Image className={isDarkMode ? "dark-image" : ""} src={four}></Image>
+                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
                         Darn, a worker is restocking this next aisle and it's quite busy too. They'd rather alter their shopping path than sacrifice their efficient browsing.
                     </h5>
                     </Col>
                     <Col>
-                    <Image src={five}></Image>
-                    <h5 className="callout">
+                    <Image className={isDarkMode ? "dark-image" : ""} src={five}></Image>
+                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
                         Alright, we just got 3 more aisles to go. Swinging by the spices reminds them their household is running out of salt. 
                         They also see a bread their friend recommended. Snaking through all the aisles allowed them to remember both these things.
                     </h5>
                     </Col>
                     <Col>
-                    <Image src={six}></Image>
-                    <h5 className="callout">
+                    <Image className={isDarkMode ? "dark-image" : ""} src={six}></Image>
+                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
                         Last step: did we forget anything? Likely not, but we check the list.
                     </h5>
                     </Col>
                 </Row>
                 <Row>
                 <Col>
-                    <Image src={seven}></Image>
-                    <h5 className="callout">
+                    <Image className={isDarkMode ? "dark-image" : ""} src={seven}></Image>
+                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
                         They usually skip over the appealing sweats and other snacks at checkout, and pay!
                     </h5>
                 </Col>
@@ -406,6 +533,7 @@ function Personas() {
                     To accommodate the king, the store must introduce change gracefully. 
                     Introducing too much unfamiliarity and disorder will ruin the king's shopping experience, who may stop being a loyal customer.
                     The store introduces new products with special displays, which is a good compromise, but they could do a better job communicating with the king when certain seasonal products will be sold, amongst other changes.
+
                 </h5>
             </div>
             
