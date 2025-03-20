@@ -17,6 +17,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
 
     <style>
+      html{
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
       body {
           font-family: Arial, sans-serif;
           margin: 0;
@@ -57,25 +61,29 @@
         justify-content: space-between;
         padding-left: 1rem;
         padding-right: 1rem;
-        box-shadow: 0px 0px 250px #A94112;
+        box-shadow: 0px 0px 20px #A94112;
         color: #b40303;
 
       }
-      nav-item{
-        color: #b40303;
-      }
-      
-      .nav-links ul li{
-        display: inline;
-        padding: 0rem 1rem;
-        color: #A94112;
 
-      }
-      .nav-links ul li a{
-        color: #A94112;
+      .nav-link-bootleg{
+        padding-right: 1rem;
+        padding-left: 1rem;
         text-decoration: none;
+        color: #A94112;
       }
-      .nav-links ul li:hover{
+
+      .nav-link-bootleg:hover{
+        padding-right: 1rem;
+        padding-left: 1rem;
+        text-decoration: underline;
+        color: #A94112;
+      }
+
+      .nav-link-bootleg.active{
+        padding-right: 1rem;
+        padding-left: 1rem;
+        text-decoration: underline;
         color: #A94112;
       }
 
@@ -227,6 +235,15 @@
         justify-content: space-between;
         width: 100%;
       }
+
+      #togglePanelButton {
+        display: none;
+      }
+
+      .side-panel {
+        display: none;
+      }
+
       @media (min-width: 1500px){
         .menu-nav{
         right: calc(50% - 750px);
@@ -360,6 +377,7 @@
           z-index: 1000; 
           top: 90%;
           left: 1rem;
+
         }
 
         .callout{
@@ -377,7 +395,59 @@
         line-height: 1.5rem;
         opacity: .8;
       }
+
+      /* SIDE PANEL */
+      button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      all: unset;
+
       }
+
+      #togglePanelButton {
+        width: 36px;
+        display: initial;
+        position: fixed;
+        z-index: 6000; 
+        top: 90%;
+        right: calc(100% - 4rem);
+        border-radius: 50%;
+        transition: transform 0.2s ease, left 0.2s ease;
+        margin: 0;
+        padding: 0;
+      }
+
+      .rotated {
+        transform: rotate(180deg);
+        /* left: calc(1rem + 300px);  */
+      }
+
+      .side-panel {
+        display: block;
+        position: fixed;
+        /* top: 0; */
+        left: -300px; /* Hidden by default */
+        width: 300px;
+        bottom: 0;
+        height: calc(100% - 58px);
+        background-color: #F8F3F1;
+        z-index: 5000;
+        color: #A94112;
+        overflow-x: hidden;
+        transition: left 0.3s ease; /* Smooth opening */
+      }
+
+      .side-panel.open {
+        left: 0; /* Slide into view */
+      }
+
+      .side-panel h2, .side-panel p {
+        padding: 20px;
+      }
+      }
+
+      
 
   </style>
 </head>
@@ -398,13 +468,13 @@
               <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav ms-auto  my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 120px;">
                   <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link-bootleg" href="#">About</a>
                   </li>
                   <li class="nav-item active">
-                    <a class="nav-link" aria-current="page"  href="#">Menu</a>
+                    <a class="nav-link-bootleg active" href="#">Menu</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link-bootleg" href="#">Contact</a>
                   </li>
                 </ul>
               </div>
@@ -414,63 +484,119 @@
     <main >
       <div class="page">
       <div class="page-container" >
-        <div class="menu-nav-toggle">
-          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="white" class="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16">
-            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"/>
-          </svg>
-        </div>
-        <div class="menu-nav">
+        <div id="sidePanel" class="side-panel">
           <div class="menu-button">
-            <a href="#">
+            <a href="#appetizers">
             APPETIZERS
             </a>
           </div>
           <div class="menu-button">
-            <a href="#">
+            <a href="#soups">
             SOUPS
             </a>
           </div><div class="menu-button">
-            <a href="#">
+            <a href="#salads">
             SALADS
             </a>
           </div><div class="menu-button">
-            <a href="#">
+            <a href="#curry-dishes">
             CURRY DISHES
             </a>
           </div><div class="menu-button">
-            <a href="#">
+            <a href="#entres">
             ENTRES
             </a>
           </div><div class="menu-button">
-            <a href="#">
+            <a href="#sides">
             SIDES
             </a>
           </div><div class="menu-button">
-            <a href="#">
+            <a href="#lunch-special">
             LUNCH SPECIAL
             </a>
           </div><div class="menu-button">
-            <a href="#">
+            <a href="#served-all-day">
             SERVED ALL DAY
             </a>
           </div><div class="menu-button">
-            <a href="#">
+            <a href="#chef-special">
             CHEF SPECIAL
             </a>
           </div><div class="menu-button">
-            <a href="#">
+            <a href="#healthy-corner">
             HEALTHY CORNER
             </a>
           </div><div class="menu-button">
-            <a href="#">
+            <a href="#beverages">
             BEVERAGES
             </a>
           </div><div class="menu-button">
-            <a href="#">
+            <a href="#beer-and-wine">
             BEER AND WINE
             </a>
           </div><div class="menu-button">
-            <a href="#">
+            <a href="#dessert">
+            DESSERT
+            </a>
+          </div>
+        </div>
+        <button id="togglePanelButton"> 
+          <svg style="background-color:#A94112; border-radius:50%; box-shadow: 0px 0px 5px #6f2d0e;" id="rightArrow" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+            <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+          </svg>
+        </button>
+        <div class="menu-nav">
+          <div class="menu-button">
+            <a href="#appetizers">
+            APPETIZERS
+            </a>
+          </div>
+          <div class="menu-button">
+            <a href="#soups">
+            SOUPS
+            </a>
+          </div><div class="menu-button">
+            <a href="#salads">
+            SALADS
+            </a>
+          </div><div class="menu-button">
+            <a href="#curry-dishes">
+            CURRY DISHES
+            </a>
+          </div><div class="menu-button">
+            <a href="#entres">
+            ENTRES
+            </a>
+          </div><div class="menu-button">
+            <a href="#sides">
+            SIDES
+            </a>
+          </div><div class="menu-button">
+            <a href="#lunch-special">
+            LUNCH SPECIAL
+            </a>
+          </div><div class="menu-button">
+            <a href="#served-all-day">
+            SERVED ALL DAY
+            </a>
+          </div><div class="menu-button">
+            <a href="#chef-special">
+            CHEF SPECIAL
+            </a>
+          </div><div class="menu-button">
+            <a href="#healthy-corner">
+            HEALTHY CORNER
+            </a>
+          </div><div class="menu-button">
+            <a href="#beverages">
+            BEVERAGES
+            </a>
+          </div><div class="menu-button">
+            <a href="#beer-and-wine">
+            BEER AND WINE
+            </a>
+          </div><div class="menu-button">
+            <a href="#dessert">
             DESSERT
             </a>
           </div>
@@ -488,7 +614,8 @@
             <br/>
             </div>
         </div>
-        <div class="section-title">
+        
+        <div class="section-title" id="appetizers">
           APPETIZERS
         </div>
         <div class="section">
@@ -767,7 +894,8 @@
             </div>
           </div>
         </div>
-        <div class="section-title">
+
+        <div class="section-title" id="soups">
           SOUPS
         </div>
         <div class="section">
@@ -910,7 +1038,7 @@
             </div>
           </div>
         </div>
-        <div class="section-title">
+        <div class="section-title" id="salads">
           SALADS
         </div>
         <div class="section">
@@ -1053,7 +1181,7 @@
             </div>
           </div>
         </div>
-        <div class="section-title">
+        <div class="section-title" id="curry-dishes">
           CURRY DISHES
         </div>
         <div class="section-description">
@@ -1201,7 +1329,7 @@
             </div>
           </div>
         </div>
-        <div class="section-title">
+        <div class="section-title" id="entres">
           ENTRES
         </div>
         <div class="section-description">
@@ -1349,7 +1477,7 @@
             </div>
           </div>
         </div>
-        <div class="section-title">
+        <div class="section-title" id="sides">
           SIDES
         </div>
         <div class="section">
@@ -1492,7 +1620,7 @@
             </div>
           </div>
         </div>
-        <div class="section-title">
+        <div class="section-title" id="lunch-special">
           LUNCH SPECIAL
         </div>
         <div class="section-description">
@@ -1640,7 +1768,7 @@
             </div>
           </div>
         </div>
-        <div class="section-title">
+        <div class="section-title" id="served-all-day">
           SERVED ALL DAY
         </div>
         <div class="section">
@@ -1783,7 +1911,7 @@
             </div>
           </div>
         </div>
-        <div class="section-title">
+        <div class="section-title" id="chef-special">
           CHEF SPECIAL
         </div>
         <div class="section-description">
@@ -1931,7 +2059,7 @@
             </div>
           </div>
         </div>
-        <div class="section-title">
+        <div class="section-title" id="healthy-corner">
           HEALTHY CORNER
         </div>
         <div class="section-description">
@@ -2079,7 +2207,7 @@
             </div>
           </div>
         </div>
-        <div class="section-title">
+        <div class="section-title" id="beverages">
           BEVERAGES
         </div>
         <div class="section">
@@ -2222,7 +2350,7 @@
             </div>
           </div>
         </div>
-        <div class="section-title">
+        <div class="section-title" id="beer-and-wine">
           BEER AND WINE
         </div>
         <div class="section">
@@ -2365,7 +2493,7 @@
             </div>
           </div>
         </div>
-        <div class="section-title">
+        <div class="section-title" id="dessert">
           DESSERT
         </div>
         <div class="section">
@@ -2514,11 +2642,26 @@
       </div>
     </main>
     <footer>
-        <p style="color: rgb(75, 75, 75);">&copy; footer</p>
+        <!-- <p style="color: rgb(75, 75, 75);">&copy; footer</p> -->
     </footer>
     <!-- Link to external JavaScript file -->
     <script src="script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    const toggleButton = document.getElementById('togglePanelButton');
+    const sidePanel = document.getElementById('sidePanel');
 
+    toggleButton.addEventListener('click', function () {
+      if (sidePanel.classList.contains('open')) {
+        toggleButton.classList.remove('rotated');
+        sidePanel.classList.remove('open');
+
+      } else {
+        toggleButton.classList.add('rotated');
+        sidePanel.classList.add('open');
+
+      }
+    });
+    </script>
 </body>
 </html>
