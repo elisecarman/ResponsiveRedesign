@@ -1,20 +1,17 @@
 import { useRef} from "react";
 import '../App.css';
-import mouse_simple from "../assets/mouse-simple.png"
-import mouse_improved from "../assets/mouse-improved.png"
-import keyboard_simple from "../assets/keyboard-simple.png"
-import keyboard_improved from "../assets/keyboard-improved.png"
-import disabled_improved_annotated from "../assets/disabled-improved-annotated.png"
-import long_hover_improved_annotated from "../assets/long-hover-improved-annotated.png"
-
-
-
-import chrome_a from "../assets/chrome-abled.png"
-import chrome_d from "../assets/chrome-disabled.png"
-import spotify_a from "../assets/spotify-abled.png"
-import spotify_d from "../assets/spotify-disabled.png"
-import shellshock_a from "../assets/shellshock-abled.png"
-import shellshock_d from "../assets/shellshock-disabled.png"
+import mouse_simple from "../assets/accessible-component/mouse-simple.png"
+import mouse_improved from "../assets/accessible-component/mouse-improved.png"
+import keyboard_simple from "../assets/accessible-component/keyboard-simple.png"
+import keyboard_improved from "../assets/accessible-component/keyboard-improved.png"
+import disabled_improved_annotated from "../assets/accessible-component/disabled-improved-annotated.png"
+import long_hover_improved_annotated from "../assets/accessible-component/long-hover-improved-annotated.png"
+import chrome_a from "../assets/accessible-component/chrome-abled.png"
+import chrome_d from "../assets/accessible-component/chrome-disabled.png"
+import spotify_a from "../assets/accessible-component/spotify-abled.png"
+import spotify_d from "../assets/accessible-component/spotify-disabled.png"
+import shellshock_a from "../assets/accessible-component/shellshock-abled.png"
+import shellshock_d from "../assets/accessible-component/shellshock-disabled.png"
 import { Row, Col, Button, Dropdown, DropdownButton, Image, Table, Card, Accordion, AccordionBody} from 'react-bootstrap'
 import { useOutletContext } from "react-router-dom";
 

@@ -309,7 +309,7 @@ function Personas() {
                             Interview TLDR <br/>
                             Alec is an irregular shopper. Grocery shopping is not part of his routine, and he isn't familiar with his store yet.
                             He doesn't have much time to invest into cooking or grocery shopping, and the trip tends to be stressful.
-                            Despite the store's familiar layout and helpful signs, finding items still takes him longer than wanted.
+                            Despite the store's universal layout and helpful signs, finding items still takes him longer than wanted.
                         </i>
                     </h5>
                     <h5 className={isDarkMode ? "dark-callout" : "callout"}>
@@ -379,31 +379,31 @@ function Personas() {
                     </Col>
                     <Col>
                         <h4>Thinks</h4>
-                        <div className="dark-block">I have a good idea what I want to cook this week.</div>
-                        <div className="dark-block">Maybe I should have come at a less busy time, people are in my path</div>
-                        <div className="dark-block">I hope they restocked their produce</div>
+                        <div className={isDarkMode ? "dark-block" : "block"}>I have a good idea what I want to cook this week.</div>
+                        <div className={isDarkMode ? "dark-block" : "block"}>Maybe I should have come at a less busy time, people are in my path</div>
+                        <div className={isDarkMode ? "dark-block" : "block"}>I hope they restocked their produce</div>
                     </Col>
                     <Col>
                     <h4>Says</h4>
-                        <div className="dark-block-2">See you this time next week!</div>
-                        <div className="dark-block-2">I brought a list for good measure.</div>
-                        <div className="dark-block-2">I'm excited to see what's new!</div>
+                        <div className={isDarkMode ? "dark-block-2" : "block-2"}>See you this time next week!</div>
+                        <div className={isDarkMode ? "dark-block-2" : "block-2"}>I brought a list for good measure.</div>
+                        <div className={isDarkMode ? "dark-block-2" : "block-2"}>I'm excited to see what's new!</div>
 
                     </Col>
                     <Col>
                    <h4>Feels</h4>
-                        <div className="dark-block">I'm excited to see what's new! (So I can keep track of changes and stay in control) </div>
-                        <div className="dark-block">Wishes it was less crowded</div>
-                        <div className="dark-block">Satisfied they know most of the store layout</div>
-                        <div className="dark-block">Feel in control</div>
-                        <div className="dark-block">Wishes the produce wouldn't switch around so much</div>
+                        <div className={isDarkMode ? "dark-block" : "block"}>I'm excited to see what's new! (So I can keep track of changes and stay in control) </div>
+                        <div className={isDarkMode ? "dark-block" : "block"}>Wishes it was less crowded</div>
+                        <div className={isDarkMode ? "dark-block" : "block"}>Satisfied they know most of the store layout</div>
+                        <div className={isDarkMode ? "dark-block" : "block"}>Feel in control</div>
+                        <div className={isDarkMode ? "dark-block" : "block"}>Wishes the produce wouldn't switch around so much</div>
                     </Col>
                     <Col>
                     <h4>Does</h4>
-                        <div className="dark-block-2">Does not use the list too much, it's more of a formality.</div>
-                        <div className="dark-block-2">This grocery trip is part of their routine. They blocked the time, and take the time to go through the whole store.</div>
-                        <div className="dark-block-2">Have a clear idea where most usual products are</div>
-                        <div className="dark-block-2">Spend a bit more time than they would like finding produce</div>     
+                        <div className={isDarkMode ? "dark-block-2" : "block-2"}>Does not use the list too much, it's more of a formality.</div>
+                        <div className={isDarkMode ? "dark-block-2" : "block-2"}>This grocery trip is part of their routine. They blocked the time, and take the time to go through the whole store.</div>
+                        <div className={isDarkMode ? "dark-block-2" : "block-2"}>Have a clear idea where most usual products are</div>
+                        <div className={isDarkMode ? "dark-block-2" : "block-2"}>Spend a bit more time than they would like finding produce</div>     
                     </Col>
                 </Row>
                 <h5 className={isDarkMode ? "dark-callout" : "callout"}>
@@ -425,27 +425,27 @@ function Personas() {
                 <Row style={{marginBottom: "2rem"}}>
                     <Col>
                     <h4>Thinks</h4>
-                    <div className="dark-block-2">I want a little snack</div>
-                    <div className="dark-block-2">I really have to hurry!</div>
-                    <div className="dark-block-2">I'm not 100% sure what I'll get, but I have an idea</div>
-                    <div className="dark-block-2">If I can't find this item easily, I'll give up pretty fast</div>
+                    <div className={isDarkMode ? "dark-block-2" : "block-2"}>I want a little snack</div>
+                    <div className={isDarkMode ? "dark-block-2" : "block-2"}>I really have to hurry!</div>
+                    <div className={isDarkMode ? "dark-block-2" : "block-2"}>I'm not 100% sure what I'll get, but I have an idea</div>
+                    <div className={isDarkMode ? "dark-block-2" : "block-2"}>If I can't find this item easily, I'll give up pretty fast</div>
                     </Col>
                     <Col>
                     <h4>Says</h4>
-                    <div className="dark-block">I'll just be in and out, and won't buy much</div>
-                    <div className="dark-block">This store is huge!</div>
+                    <div className={isDarkMode ? "dark-block" : "block"}>I'll just be in and out, and won't buy much</div>
+                    <div className={isDarkMode ? "dark-block" : "block"}>This store is huge!</div>
                     </Col>
                     <Col>
                    <h4>Feels</h4>
-                    <div className="dark-block-2">Does not know the whole store, maybe just enough to get in and out efficiently</div>
-                    <div className="dark-block-2">Stressed they'll make it on time to their next commitment</div>
+                    <div className={isDarkMode ? "dark-block-2" : "block-2"}>Does not know the whole store, maybe just enough to get in and out efficiently</div>
+                    <div className={isDarkMode ? "dark-block-2" : "block-2"}>Stressed they'll make it on time to their next commitment</div>
                         
                     </Col>
                     <Col>
                     <h4>Does</h4>
-                    <div className="dark-block">Ends up buying more than expected</div>
-                    <div className="dark-block">Gets tempted by the special offers and sweet treats</div>
-                    <div className="dark-block">Shop irregularly, whenever possible. They're not mentally ready to spend a lot of time shopping.</div>      
+                    <div className={isDarkMode ? "dark-block" : "block"}>Ends up buying more than expected</div>
+                    <div className={isDarkMode ? "dark-block" : "block"}>Gets tempted by the special offers and sweet treats</div>
+                    <div className={isDarkMode ? "dark-block" : "block"}>Shop irregularly, whenever possible. They're not mentally ready to spend a lot of time shopping.</div>      
 
                     </Col>
                     <Col>
