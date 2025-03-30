@@ -12,9 +12,12 @@ import spotify_a from "../assets/accessible-component/spotify-abled.png"
 import spotify_d from "../assets/accessible-component/spotify-disabled.png"
 import shellshock_a from "../assets/accessible-component/shellshock-abled.png"
 import shellshock_d from "../assets/accessible-component/shellshock-disabled.png"
-import { Row, Col, Button, Dropdown, DropdownButton, Image, Table, Card, Accordion, AccordionBody} from 'react-bootstrap'
+import { Row, Col, Dropdown, DropdownButton, Image, Table, Card} from 'react-bootstrap'
 import { useOutletContext } from "react-router-dom";
-
+import Section from "../components/Section";
+import Callout from "../components/Callout";
+import Navigation from "../components/Navigation";
+import Page from "../components/Page";
 interface OutletContext {
     isDarkMode: boolean;
 }
@@ -28,71 +31,36 @@ function AccessibleComponent() {
   const section6Ref = useRef(null);
   const section7Ref = useRef(null);
   const section8Ref = useRef(null);
+
+  const refs = [
+    section1Ref,
+    section2Ref,
+    section3Ref,
+    section4Ref,
+    section5Ref,
+    section6Ref,
+    section7Ref,
+    section8Ref,
+  ]
+
+  const titles = [
+    "Intro",
+    "Entities",
+    "Inputs Table",
+    "Outputs Table",
+    "Inputs Redesign",
+    "Outputs Redesign",
+    "Look Redesign",
+    "Conclusion"
+  ]
+
   const { isDarkMode } = useOutletContext<OutletContext>();
-
-
-  const scrollToSection = (ref: any) => {
-    ref.current.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
 
-    <div>
-    <Accordion 
-    defaultActiveKey="0"
-    // data-bs-theme={isDarkMode ? "dark" : "secondary"} 
-      style={{
-        position: "fixed",
-        top: "50%",
-        left: "1rem",
-        transform: "translateY(-50%)",
-        zIndex: 1000,
-        margin: "0rem",
-      }}
-        >
-    <Accordion.Item eventKey="0"
-          style={{
-            backgroundColor: "transparent",
-            border: "none"
-          }}
-          >
-          <Accordion.Header 
-          style = {{
-            // backgroundColor:"#000000"
-          }}
-          >Sections</Accordion.Header>
-          <AccordionBody 
-          style={{margin: "0rem", padding: "0rem"}}
-          >
-            <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section1Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-            Intro
-          </Button>
-          <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section2Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-            Entities
-          </Button>
-          <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section3Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-            Inputs table
-          </Button>
-          <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section4Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-            Outputs table
-          </Button>
-          <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section5Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-            Inputs redesign
-          </Button>
-          <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section6Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-            Outputs redesign
-          </Button>
-          <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section7Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-            Look redesign
-          </Button>
-          <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section8Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-            Conclusion
-          </Button> 
-          </AccordionBody>
-          </Accordion.Item>
-    </Accordion>
-
-      <div ref={section1Ref} className={isDarkMode ? "dark-section" : "section"}>
+    <Page>
+      <Navigation refs={refs} titles={titles}/>
+      <Section ref={section1Ref}>
         <h1 className="mb-5">Is your Dropdown Menu up to par?</h1>
         <Row className="justify-content-center">
           <Col xs="auto" className="text-center gap-4">
@@ -105,7 +73,7 @@ function AccessibleComponent() {
             <h3 className="mb-3">Simple right?</h3>
           </Col>
         </Row>
-        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+        <Callout>
           Yet a lot of thought goes into designing a good dropdown menu. Take the time to interact with this menu.
           <br />
           How do you open it, collapse it? Can you interact with it with your keyboard instead?
@@ -114,14 +82,14 @@ function AccessibleComponent() {
           <br />
           <br />
           Many applications choose different implementations for their dropdown menus. Let's compare a few together, and come up with our own improvements!
-        </h5>
-      </div>
+        </Callout>
+      </Section>
 
-      <div ref={section2Ref} className={isDarkMode ? "dark-section" : "section"}>
+      <Section ref={section2Ref}>
         <h2>Entities</h2>
         <Row className="mb-4">
           <Col md={4} >
-            <Card className={isDarkMode ? "dark-card p-3 h-100": "p-3 h-100"}>
+            <Card className="bootleg-card p-3 h-100">
               <Card.Title>Chrome</Card.Title>
               <Card.Subtitle className="mb-3">bookmark dropdown</Card.Subtitle>
               <Card.Img className="mb-2" src={chrome_d}></Card.Img>
@@ -130,7 +98,7 @@ function AccessibleComponent() {
           </Col>
 
           <Col md={4}>
-            <Card className={isDarkMode ? "dark-card p-3 h-100": "p-3 h-100"}>
+            <Card className="bootleg-card p-3 h-100">
               <Card.Title>Spotify </Card.Title>
               <Card.Subtitle className="mb-3">profile dropdown</Card.Subtitle>
               <Card.Img className="mb-2" src={spotify_d}></Card.Img>
@@ -139,7 +107,7 @@ function AccessibleComponent() {
           </Col>
 
           <Col md={4}>
-            <Card className={isDarkMode ? "dark-card p-3 h-100": "p-3 h-100"}>
+            <Card className="bootleg-card p-3 h-100">
               <Card.Title>ShellShock.io</Card.Title>
               <Card.Subtitle className="mb-3">game mode dropdown</Card.Subtitle>
               <Card.Img className="mb-2" src={shellshock_d}></Card.Img>
@@ -147,7 +115,7 @@ function AccessibleComponent() {
             </Card>
           </Col>
         </Row>
-        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+        <Callout>
           For this Dropdown Menu analysis, we'll be looking at the following three dropdowns:
           <br />
           - the Chrome bookmarks dropdown
@@ -157,17 +125,18 @@ function AccessibleComponent() {
           - the ShellShock.io game mode dropdown
           <br />
           How do these all compare? Which user interactions do they allow and prioritize? How can they be improved?
-        </h5>
-      </div>
+        </Callout>
+      </Section>
 
-      <div ref={section3Ref} className={isDarkMode ? "dark-section" : "section"}>
+      <Section ref={section3Ref}>
         <h2> Comparing Inputs </h2>
-        <h5 className={isDarkMode ? "dark-callout mb-5" : "mb-5"}>
+        <Callout>
           Let's first look at our interactions with these components.
           What if you don't have access to a mouse and must use a keyboard?
           What if you rely on a screen reader?
-          A well designed component should allow varied inputs!</h5>
-        <Table className={isDarkMode ? "table table-dark" : "table"} >
+          A well designed component should allow varied inputs!</Callout>
+        <div style={{minWidth: "600px", overflowX: "auto"}}>
+        <Table  className={isDarkMode ? "table table-dark mt-5" : "table mt-5"} >
           <thead>
             <tr>
               <th className="w-10">#</th>
@@ -181,7 +150,6 @@ function AccessibleComponent() {
             </tr>
           </thead>
           <tbody>
-            {/* Mouse/ Touchpad */}
             <tr>
               <td rowSpan={4}>Mouse/ Touchpad</td>
               <td>Click menu button to open menu/ click item to select</td>
@@ -210,12 +178,7 @@ function AccessibleComponent() {
             <tr >
               <td>Can drag and drop item (which becomes url when dropped)</td>
               <td>+1</td>
-              {/* <td></td>
-              <td></td>
-              <td></td>
-              <td></td> */}
             </tr>
-            {/* Keyboard */}
             <tr >
               <td rowSpan={4}>Keyboard</td>
               <td>navigate through menu with up/down arrows</td>
@@ -267,18 +230,20 @@ function AccessibleComponent() {
 
           </tbody>
         </Table>
+        </div>
 
-        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+        <Callout>
           In the table above we assign positive points for particularly helpful interaction features, and take off points for lacking accessibility. <br />
           Chrome comes out on top, and marks itself apart for its extra drag and drop functionality. ShellShock.io comes last, with very few keyboard inputs.<br />
           ShellShock.io may assume its users would have access to a mouse, considering the game is a fps. Chrome on the other hand caters to various users.
           Spotify scored very low, but unlike Shellshock.io, it cannot assume their users will have a mouse, and should create a more accessible component.
-        </h5>
-      </div>
+        </Callout>
+      </Section>
 
-      <div ref={section4Ref} className={isDarkMode ? "dark-section" : "section"}>
+      <Section ref={section4Ref}>
         <h2>Comparing Outputs</h2>
-        <Table className={isDarkMode ? "table table-dark" : "table"} striped>
+        <div style={{minWidth: "600px", overflowX: "auto"}}>
+        <Table style={{overflowX: "auto"}} className={isDarkMode ? "table table-dark" : "table"} striped>
           <thead>
             <tr>
               <th className="w-10">#</th>
@@ -362,7 +327,8 @@ function AccessibleComponent() {
             </tr>
           </tbody>
         </Table>
-        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+        </div>
+        <Callout>
           For the most part, states are well indicated for all these components.
           Chrome and Spotify stand out by implementing a long hover functionality:
           For Chrome, the name of the item and its associated link pop up in a label.
@@ -375,45 +341,45 @@ function AccessibleComponent() {
           The Shellshock.io menu serves to choose a gamemode, and thus needs an active state. Spotify has a "private session" item which similarly displays a checkmark when active.
           Chrome has no use for the active state.
 
-        </h5>
-      </div>
+        </Callout>
+      </Section>
 
-      <div ref={section5Ref} className={isDarkMode ? "dark-section" : "section"}>
+      <Section ref={section5Ref}>
         <h2>Inputs Redesign</h2>
         <h4>Spotify</h4>
-        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+        <Callout>
           Shellshock.io's accessibility is poor, but fixing Spotify seems like a priority considering its wide user base.
           Let's improve its mouse/keypad state model first.
-        </h5>
-        <Image className={isDarkMode ? "dark-image" : ""} src={mouse_simple} rounded fluid />
-        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+        </Callout>
+        <Image className="bootleg-image" src={mouse_simple} rounded fluid />
+        <Callout>
           Let's draw from Chrome's good example and add a long hover state on which item links will be displayed.
           Like with Chrome bookmarks, users should be able to drag and drop these links if needed.
-        </h5>
-        <Image className={isDarkMode ? "dark-image" : ""} src={mouse_improved} rounded fluid />
-      </div>
+        </Callout>
+        <Image className="bootleg-image" src={mouse_improved} rounded fluid />
+      </Section>
 
-      <div ref={section6Ref} className={isDarkMode ? "dark-section" : "section"}>
+      <Section ref={section6Ref}>
         <h2>Outputs Redesign</h2>
         <h4 className="mb-2"> Spotify</h4>
-        <Image className={isDarkMode ? "dark-image" : ""} src={keyboard_simple} rounded fluid />
-        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+        <Image className="bootleg-image" src={keyboard_simple} rounded fluid />
+        <Callout>
           For the keyboard inputs, let's fix the Spotify dropdown access order and enable opening the menu with tab.
           This will allow keyboard users to actually open and use the dropdown menu.
           Secondly, let's translate the long hover state described above to the active state, accessible with right and left arrow keys.
-        </h5>
-        <Image className={isDarkMode ? "dark-image" : ""} src={keyboard_improved} rounded fluid />
+        </Callout>
+        <Image className="bootleg-image" src={keyboard_improved} rounded fluid />
 
-      </div>
+      </Section>
 
-      <div ref={section7Ref} className={isDarkMode ? "dark-section" : "section"}>
+      <Section ref={section7Ref}>
         <h2 className="mb-3">Look Redesign</h2>
-        <h5 className={isDarkMode ? "dark-callout mb-3" : "callout mb-3" }>
+        <Callout>
           Let's mock up this added long hover state. Additionally, let's improve the look of the menu button.
           While many users might be used to clicking on a profile photo to access the profile menu, newer users might not think to do so.
           Adding a small arrow in the same style as other Spotify icons should help hint at a dropdown.
-        </h5>
-        <Row className="mb-4" style={{ backgroundColor: "#000000", color: "#f2f2f2", padding: "2rem", borderRadius: "5px" }} >
+        </Callout>
+        <Row className="mb-4 mt-3" style={{ backgroundColor: "#000000", color: "#f2f2f2", padding: "2rem", borderRadius: "5px" }} >
           <Col md={6}>
             <h4>Disabled</h4>
             <Image src={disabled_improved_annotated} fluid></Image>
@@ -432,28 +398,28 @@ function AccessibleComponent() {
         </Row>
         <Row >
           <Col md={3} >
-            <h5 className={isDarkMode ? "dark-callout h-100" : "callout h100"} style={{ fontSize: "15px" }}>
+            <h5 className="callout h100" style={{ fontSize: "15px" }}>
               Learnability <br /><br />
               Adding an arrow next to the profile picture improves learnability.
               It helps explicitly indicate that the user can interact with the profile picture/arrow.
             </h5>
           </Col>
           <Col md={3}>
-            <h5 className={isDarkMode ? "dark-callout h-100" : "callout h100"} style={{ fontSize: "15px" }}>
+            <h5 className="callout h100" style={{ fontSize: "15px" }}>
               Memorability <br /><br />
               Keeping this new arrow in the same style as the other icons further promotes memorability.
               Once the user remembers these icons are actionable, they will remember the arrow is too.
             </h5>
           </Col>
           <Col md={3}>
-            <h5 className={isDarkMode ? "dark-callout h-100" : "callout h100"} style={{ fontSize: "15px" }}>
+            <h5 className="callout h100" style={{ fontSize: "15px" }}>
               Efficiency <br /> <br />
               Both the profile picture and arrow can be selected to open the menu, maintaining a  quick interaction.
               Furthermore, the pop up for the external link may be drag and dropped, saving the user the effort of opening the link then copying it.
             </h5>
           </Col>
           <Col md={3}>
-            <h5 className={isDarkMode ? "dark-callout h-100" : "callout h100"} style={{ fontSize: "15px" }}>
+            <h5 className="callout h100" style={{ fontSize: "15px" }}>
               Accessibility<br /> <br />
               Improving keyboard access and enabling tab and focus order vastly improves the component's accessibility.
               Previously, the user had to click on the menu button to open it, and only then could they use their keyboard to navigate the menu.
@@ -461,32 +427,32 @@ function AccessibleComponent() {
           </Col>
         </Row>
 
-      </div>
+      </Section>
 
-      <div ref={section8Ref} className={isDarkMode ? "dark-section" : "section"}>
+      <Section ref={section8Ref}>
         <h2>Conclusion</h2>
         <h5>
           Where the observed components did well, and how it inspired my redesign
         </h5>
-        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+        <Callout>
           A few of Chrome's functionalities stood out to me during this analysis. 
           Its pop up label helps users gain insight into the item content, and its drag and dropability improves efficiency. 
           I decided to reuse these elements in my redesign of the Spotify dropdown menu. The menu contains a number of outgoing links which the user may need visual or copy/paste access to.
-        </h5>
+        </Callout>
         <h5>
           How my design accounts for unaddressed accessibility considerations
         </h5>
-        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+        <Callout>
           All the components I examined were less accessible to keyboard users. 
           Shellshock.io's only keyboard interaction was closing the menu with enter. 
           Chrome did much better, allowing navigation with arrow and enter/escape keys, but its dropdown menu and items are excluded from the focus order and unreachable with tab.
           Finally, Spotify allowed many keyboard interactions, and had its menu button accessible with tab, but not its items.
           I chose to fix Spotify's design by adding its items to the focus order and adding pop up labels resembling Chrome's. 
-        </h5>
+        </Callout>
         <h5>
           How my changes solve a mismatch in our world
         </h5>
-        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+        <Callout>
           Before watching Kat Holmes' talk, I thought Spotify was the better app to improve of the three I examined. 
           An online video game like Shellshock.io is inherently ablist: users with the best reaction time ans the best attention to visual and auditive details will perform better. 
           A music streaming application like Spotify on the other hand has no excuse: Many more people, including deaf and hard of hearing people, can enjoy musical soundwaves.
@@ -494,30 +460,29 @@ function AccessibleComponent() {
 
           <br/>
           However, I was perhaps quick to accept the way Shellshock.io shuts certain users out. There are many ways to play video games, and perhaps there can be many ways to play Shellshock.io. As Kat Holmes mentioned, we shouldn't thrive for a one size fit all solution, and instead offer a plethora.
-        </h5>
+        </Callout>
         <h5>
           Encountered examples of accessibility/inaccessibility of inputs or outputs and their positive/negative impact on users with impairments.
         </h5>
-        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+        <Callout>
           1 positive: Chrome's superior implementation for screen readers will help visually impaired users better understand the menu items.
           <br/>
           3 negatives: Chrome, Shellshock.io, and Spotify's absence from the focus order however seriously impacts the same screen reader users who simply won't have access to the menus unless they use a mouse to open it.
-        </h5>
+        </Callout>
         <h5>
           Most commonly prioritized inputs (mouse, keyboard, touch/mobile) in component creation, and this decision's impact on user experience.
-          {/* Between mouse, keyboard, touch/mobile, and screen reader users, which do you think are most commonly prioritized in the process of creating components? How might this impact the user experience? */}
         </h5>
-        <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+        <Callout>
           I think the typical order of priority in design goes something like this: <br/>
           1) mouse/touch/mobile 2) keyboard 3) screen reader <br/>
           
           From my own experience with the components described above, keyboard and screen readers are definitely a lower priority for designers.
           This shuts out a lot of people who cannot use a phone or mouse. The internet is vast and bountiful, but users relying on less prioritized inputs may be excluded from much of it.
           For example, while job hunting I encountered job applications with varying levels of accessibility. While I as a mouse user had full access to the online job market, many keyboard or screen reader users missed out on professional opportunities.
-        </h5>
+        </Callout>
 
-      </div>
-    </div>
+      </Section>
+    </Page>
   )
 }
 

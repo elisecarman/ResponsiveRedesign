@@ -1,9 +1,12 @@
+import Section from "../components/Section"
+import Callout from "../components/Callout"
+
 function NotFound() {
 
     return(
-        <div>
-            <h1>Not Found :( </h1>
-        </div>
+        <Section>
+            <Callout>Not Found :( </Callout>
+        </Section>
     )
     
 }

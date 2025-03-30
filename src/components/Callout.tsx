@@ -1,14 +1,13 @@
 import "../App.css"
 
 interface CalloutProp{
-    isDarkMode: boolean,
-    text: string
+    children: React.ReactNode
 }
 
-function Callout(props: CalloutProp) {
+function Callout({children}: CalloutProp) {
   return (
-    <h5 className={props.isDarkMode ? "dark-callout" : "callout"}>
-        {props.text}
+    <h5 className={"callout"}>
+        {children}
     </h5>
   )
 }

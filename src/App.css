@@ -18,27 +18,56 @@ img, picture, video, canvas, svg{
 /* flex box froggy to learn layout!! */
 /* ------------------------------------ */
 
-.top{
-  color : #212122;
-  margin: 0rem;
-  padding: 0;
-  min-width: 100vw;
+:root {
+  --base-bg: #f2f2f2;
+  --base-text: #000000;
+  --base-light-text: #525252;
+  --callout-bg: #ffffff;
+  --callout-text: #000000;
+  --standout-bg: #fefefe;
+  --image-invert: 0;
+  --image-brightness: 1;
 }
 
-.dark-top{
-  color : #f2f2f2;
+.dark-theme {
+  --base-bg: #212122;
+  --base-text: #d6d6d6;
+  --base-light-text: #d6d6d6;
+  --callout-bg: #2c3034;
+  --callout-text: #98bfcf;
+  --standout-bg: #515860;
+  --image-invert: 1;
+  --image-brightness: 0.9;
+}
+
+.container{
+  background-color: var(--base-bg);
+  color: var(--base-text);
+  /* margin: 0;
+  padding: 0; */
+}
+
+.page{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--base-bg);
+  color: var(--base-text);
+}
+
+.top{
+  color : var(--base-text);
   margin: 0rem;
   padding: 0;
   min-width: 100vw;
-
 }
 
 .navbar{
-  background-color: #f2f2f2;
+  background-color: var(--base-bg);
   padding: 0.2rem 0.5rem;
-  color: #525252;
+  color: var(--base-light-text);
 }
-
 
 .dark-navbar{
   background-color: #212122;
@@ -46,18 +75,24 @@ img, picture, video, canvas, svg{
   color: #f2f2f2;
 }
 
-.dark-navbar-items{
-  color: #f2f2f2;
+.navbar-items{
+  color: var(--base-light-text);
 }
 
-.navbar-items{
-  color: #f2f2f2;
+.section-navigation{
+  position: fixed;
+  top: 50%;
+  left: 1rem;
+  z-index: 1000;
+  margin: 0rem;
+  width: 150px
 }
 
 
 .callout{
   word-break: break-word;
-  background-color: #ffffff;
+  background-color: var(--callout-bg);
+  color: var(--callout-text);
   border-radius: 10px;
   padding: 1rem;
   font-family: "Fira Code", monospace;
@@ -65,81 +100,84 @@ img, picture, video, canvas, svg{
   text-align: left;
 }
 
-
-.dark-callout {
-  word-break: break-word;
-  background-color: #2c3034;
-  /* color: #c4c4c4; */
-  color: #98bfcf;
-  border-radius: 10px;
-  padding: 1rem;
-  font-family: "Fira Code", monospace;
-  font-size: 17.5px;
-  text-align: left;
-}
- 
 .section{
   overflow: hidden;
-  min-height: 100vh;
-  background: #f2f2f2;
-  padding: 3rem;
+  /* min-height: 100vh; */
+  background: var(--base-bg);
+  color: var(--base-text);
   padding-top: 3rem;
-  padding-left: 14rem;
-  padding-right: 14rem;
-
+  padding-left: 13rem;
+  padding-right: 4rem;
+  margin-bottom: 10rem;
+  max-width: 1500px;
+  width: auto;
 }
 
-.dark-section{
-  overflow: hidden;
-  min-height: 100vh;
-  background: #212122;
-  /* color: #f2f2f2; */
-  color: #d6d6d6;
-  padding: 3rem;
-  padding-top: 3rem;
-  padding-left: 14rem;
-  padding-right: 14rem;
+.bootleg-card{
+  background-color: var(--callout-bg);
+  color: var(--callout-text);
 }
 
-.dark-card{
-  background-color: #0d120e;
-  color: #f2f2f2;
-}
-
-.dark-image{
-  filter: invert(1) brightness(0.9);
+.bootleg-image{
+  filter: invert(var(--image-invert)) brightness(var(--image-brightness));
 }
 
 .block{
   padding: 0.5rem;
-  background-color: #dfdfdf;
-  color: rgb(88, 88, 88);
+  background-color: var(--standout-bg);
+  color: var(--base-text);
   border-radius: 10px;
   margin: 0.5rem;
 }
 
 .block-2{
   padding: 0.5rem;
-  background-color: #fefefe;
-  color: rgb(88, 88, 88);
-  border-radius: 10px;
-  margin: 0.5rem;
-}
-
-.dark-block{
-  padding: 0.5rem;
-  background-color:  #515860;
-  color: rgb(189, 189, 189);
-  border-radius: 10px;
-  margin: 0.5rem;
-}
-
-.dark-block-2{
-  padding: 0.5rem;
-  background-color:  #2c3034;
-  color: rgb(189, 189, 189);
+  background-color: var(--callout-bg);
+  color: var(--base-text);
   border-radius: 10px;
   margin: 0.5rem;
 }
 
 
+@media (min-width: 1500px){
+  .section-navigation{
+    position: fixed;
+    top: 60px;
+    left: calc(50% - 625px);
+    z-index: 1000;
+    margin: 0rem;
+  }
+}
+
+@media (max-width: 900px){
+  .section{
+    overflow: hidden;
+    background: var(--base-bg);
+    color: var(--base-text);
+    padding-top: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    max-width: 1500px;
+    width: auto;
+  }
+  
+  .section-navigation{
+    position: fixed;
+    top: 60px;
+    left: 80%;
+    z-index: 1000;
+    margin: 0rem;
+    box-shadow: 0px 0px 5px #515860;
+  }
+
+  }
+
+  @media (max-width: 500px){
+    .section-navigation{
+      display: none;
+    }
+
+    table{
+      display: none;
+    }
+  }

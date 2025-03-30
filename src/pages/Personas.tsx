@@ -1,7 +1,6 @@
 import { useRef} from "react";
 import '../App.css';
-import { Row, Col, Button, Image, Accordion, AccordionBody } from 'react-bootstrap'
-import { useOutletContext } from "react-router-dom";
+import { Row, Col, Image} from 'react-bootstrap'
 
 import efia from "../assets/personas/efia.png"
 import yesenia from "../assets/personas/yesenia.png"
@@ -16,13 +15,10 @@ import five from "../assets/personas/5.png"
 import six from "../assets/personas/6.png"
 import seven from "../assets/personas/7.png"
 import supermarket from "../assets/personas/supermarket.png"
-
-
-
-
-interface OutletContext {
-    isDarkMode: boolean;
-}
+import Section from "../components/Section";
+import Callout from "../components/Callout";
+import Navigation from "../components/Navigation";
+import Page from "../components/Page";
 
 function Personas() {
     const section1Ref = useRef(null);
@@ -34,76 +30,37 @@ function Personas() {
     const section7Ref = useRef(null);
     const section8Ref = useRef(null);
     const section9Ref = useRef(null);
-    const { isDarkMode } = useOutletContext<OutletContext>();
-  
-  
-    const scrollToSection = (ref: any) => {
-      ref.current.scrollIntoView({ behavior: "smooth" });
-    };
+
+    const refs = [
+        section1Ref,
+        section2Ref,
+        section3Ref,
+        section4Ref,
+        section5Ref,
+        section6Ref,
+        section7Ref,
+        section8Ref,
+        section9Ref,
+    ]
+    const titles = [
+        "Intro",
+        "Interface",
+        "Interview 1",
+        "Interview 2",
+        "Interview 3",
+        "Persona 1",
+        "Persona 2",
+        "Storyboard",
+        "Conclusion"
+    ]
 
     return(
         <div>
-        <Accordion 
-        defaultActiveKey="0"
-        // data-bs-theme={isDarkMode ? "dark" : "secondary"} 
-        style={{
-        position: "fixed",
-        top: "50%",
-        left: "1rem",
-        transform: "translateY(-50%)",
-        zIndex: 1000,
-        margin: "0rem",
-        }}
-        >
-            <Accordion.Item eventKey="0"
-            style={{
-                backgroundColor: "transparent",
-                border: "none"
-            }}
-            >
-            <Accordion.Header 
-            style = {{
-                // backgroundColor:"#000000"
-            }}
-            >Sections</Accordion.Header>
-            <AccordionBody 
-            style={{margin: "0rem", padding: "0rem"}}
-            >
-            <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section1Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-            Intro
-            </Button>
-            <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section2Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-            Interface
-            </Button>
-            <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section3Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-            Interview 1
-            </Button>
-            <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section4Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-            Interview 2
-            </Button>
-            <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section5Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-            Interview 3
-            </Button>
-            <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section6Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-            Persona 1
-            </Button>
-            <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section7Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-            Persona 2
-            </Button>
-            <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section8Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-                Storyboard
-            </Button>
-            <Button variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(section9Ref)} className="w-100 mb-3" style={{ display: "block" }}>
-                Conclusion
-            </Button> 
-            </AccordionBody>
-            </Accordion.Item>
-        </Accordion>
-        
-            <div ref={section1Ref} className={isDarkMode ? "dark-section" : "section"}>
+            <Navigation refs={refs} titles={titles}/>
+            <Section ref={section1Ref}>
                 <h1 style={{marginBottom: "6rem"}}>Personas & Storyboarding</h1>
                 
-                <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                <Callout>
                     Who are supermarkets made for? Presumably, everybody! 
                     But people have varied schedules, diets, cooking styles, and household sizes! 
                     How can one possibly design an interface to satisfy most, if not all?
@@ -111,60 +68,63 @@ function Personas() {
                     but maybe an overstimulating maze for an in-and-out efficient shopper.
                     What sacrifices must be made?<br></br>
                     Let's study different user behaviors in supermarkets, and find out more about our user needs!
-                </h5>
+                </Callout>
                 
                 
-            </div>
-            <div ref={section2Ref} className={isDarkMode ? "dark-section" : "section"}>
+            </Section>
+            <Section ref={section2Ref}>
                 <h1>The interface</h1>
                     <Row >
-                    <Col>
+                    <Col md="auto" lg="auto" xl="8" >
                     <h4 className="mt-4">
                         Our interface here is a supermarket layout. <br/>
                         It's surprisingly universal! <br/>
                         You'll usually encounter the following elements
                     </h4>
-                        <Image className={isDarkMode ? "dark-image" : ""} src={supermarket}/>
+                        <Image className="bootleg-image" src={supermarket}/>
                     </Col>
-                    <Col md={4}>
+                    <Col md="auto" lg="auto" xl="4">
                     
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    <Callout>
                         - A produce section. It's always at the entrance. 
                         It's the most challenging section: produce moves around, changes seasonally, runs out. 
                         Shoppers get the most mentally exhausted while shopping for produce.
                         Because of its disorganized and busy nature, the produce section isn't an aisle but mostly an open space with stands. 
-                    </h5>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    </Callout>
+                    
+                    <Callout>
                         - Special displays at the aisle ends. This allows stores to introduce new products and deals without disrupting their shoppers' flow.
-                    </h5>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    </Callout>
+                    
+                    <Callout>
                         - Sweets, treats, snacks, and more special displays are usually close to checkout. 
                         Shoppers are most mentally exhausted and thus vulnerable to temptation at the end of their trip.
-                    </h5>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    </Callout>
+                    
+                    <Callout>
                         - Finally, the dairy and meats aisles always run along the walls.
-                    </h5>
+                    </Callout>
                     </Col>
                 </Row>
-            </div>
-            <div ref={section3Ref} className={isDarkMode ? "dark-section" : "section"}>
+            </Section>
+            <Section ref={section3Ref}>
                 <Row>
                 <h1>Yesenia</h1>
 
                     <Col className="mb-5" md={4}>
-                    <Image className={isDarkMode ? "dark-image" : ""} style={{maxHeight:"600px"}} fluid src={yesenia}></Image>
+                    <Image className="bootleg-image" style={{maxHeight:"600px"}} fluid src={yesenia}></Image>
                     
                     </Col>
                     <Col >
-                    <h5  className={isDarkMode ? "dark-callout" : "callout"}>
+                    <Callout>
                         <i>Interview TLDR<br/>
                         Yesenia is an enthusiastic cook and an organized and regular shopper. 
                         She has a good lay of the land of her favorite store, and enjoys the routine of grocery shopping.
                         She has a very systemic way of traveling through the store, allowing her to both stick to a plan and adapt to change.
                         Yesenia dislikes deviations from her routine, like changing her path because of busy aisles.
                         </i>
-                    </h5>
-                    <h5  className={isDarkMode ? "dark-callout" : "callout"}>
+                    </Callout>
+                    <Callout>
                         Behavior <br/><br/>
                         Yesenia shopped at Trader Joe's on a Sunday morning. The store was bustling, but well provisioned. 
                         She snaked through the entire store, not missing a single aisle. 
@@ -173,11 +133,11 @@ function Personas() {
                         She moved through the store systematically and with efficiency. She explored every single aisle.
                         She did not retrace her steps at any point for forgotten items, but she did redirect the flow of her path twice to avoid busy avenues. 
                         She meandered a bit more in the produce section, and briefly struggled to find mint. She was not tempted by any of the special temporary displays.
-                    </h5>
+                    </Callout>
                     
                     </Col>
 
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    <Callout>
                     Interview <br/><br/>
                     <b>
                     How often do you go grocery shopping?
@@ -215,21 +175,21 @@ function Personas() {
                     Is there anything you wish went differently today?
                     </b><br/>
                     The store was quite busy! In an ideal world I would shop without worrying as much about other customers or employees.
-                    </h5>
+                    </Callout>
                 </Row>
                 
-            </div>
-            <div ref={section4Ref} className={isDarkMode ? "dark-section" : "section"}>
+            </Section>
+            <Section ref={section4Ref}>
                 
                 <Row>
                     <h1>Efia</h1>
                     <Col className="mb-5" md={4}>
                     
-                    <Image className={isDarkMode ? "dark-image" : ""} style={{maxHeight:"600px"}} fluid src={efia}></Image>
+                    <Image className="bootleg-image" style={{maxHeight:"600px"}} fluid src={efia}></Image>
                     
                     </Col>
                     <Col>
-                    <h5 className={isDarkMode ? "dark-callout h100" : "callout h100"}>
+                    <h5 className={"callout h100"}>
                         <i>
                             Interview TLDR <br/>
                             Efia is an avid cook and a very frequent shopper. 
@@ -238,7 +198,7 @@ function Personas() {
                             Otherwise, she shops efficiently through the rest of the store. 
                         </i>
                     </h5>
-                    <h5 className={isDarkMode ? "dark-callout h100" : "callout h100"}>
+                    <h5 className={"callout h100"}>
                         Behavior <br/><br/>
                         Efia shopped at Trader Joe's around 8pm on a Tuesday night. 
                         The store had few customers, and the store seemed low on produce. 
@@ -251,7 +211,7 @@ function Personas() {
                     </h5>
                     
                     </Col>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    <Callout>
                         Interview <br/><br/>
                         <b>
                     How often do you go grocery shopping?
@@ -292,27 +252,27 @@ function Personas() {
                     Is there anything you wish went differently today?
                     </b><br/>
                     I was so pressed for time I forgot quite a few items on my list/ didn't have time to get to them. I'll have to come back for them later this week.
-                    </h5>
+                    </Callout>
                 </Row>
-            </div>
-            <div ref={section5Ref} className={isDarkMode ? "dark-section" : "section"}>
+            </Section>
+            <Section ref={section5Ref}>
                 <Row>
                 <h1>Alec</h1>
 
                     <Col className="mb-5" md={4}>
-                    <Image className={isDarkMode ? "dark-image" : ""} style={{maxHeight:"600px"}} fluid src={alec}></Image>
+                    <Image className="bootleg-image" style={{maxHeight:"600px"}} fluid src={alec}></Image>
                     
                     </Col>
                     <Col>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    <Callout>
                         <i>
                             Interview TLDR <br/>
                             Alec is an irregular shopper. Grocery shopping is not part of his routine, and he isn't familiar with his store yet.
                             He doesn't have much time to invest into cooking or grocery shopping, and the trip tends to be stressful.
                             Despite the store's universal layout and helpful signs, finding items still takes him longer than wanted.
                         </i>
-                    </h5>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    </Callout>
+                    <Callout>
                         Behavior <br/><br/>
                         Alec shopped at Shaw's on a Sunday around 5pm.
                         The very large supermarket did not appear particularly busy. 
@@ -323,10 +283,10 @@ function Personas() {
                         He grabbed a couple items which were not on his list.
                         He explored a 1/4 of the store's aisles, before swinging by the pastries and sweets section before checkout.
                         He pointed out a box of brownies and bought it.
-                    </h5>
+                    </Callout>
                     
                     </Col>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    <Callout>
                         Interview <br/><br/>
                         <b>
                     How often do you go grocery shopping?
@@ -368,45 +328,47 @@ function Personas() {
                     Is there anything you wish went differently today?
                     </b><br/>
                     This store just feels too big sometimes.
-                    </h5>
+                    </Callout>
                 </Row>
-            </div>
-            <div ref={section6Ref} className={isDarkMode ? "dark-section" : "section"}>
+            </Section>
+            <Section ref={section6Ref}>
                 <h1>The king of the playground</h1>
                 <Row style={{marginBottom: "2rem"}}>
-                    <Col>
-                    <Image className={isDarkMode ? "dark-image" : ""} src={king}></Image>
-                    </Col>
-                    <Col>
+                    <Col xs="auto" sm="6" lg="3">
                         <h4>Thinks</h4>
-                        <div className={isDarkMode ? "dark-block" : "block"}>I have a good idea what I want to cook this week.</div>
-                        <div className={isDarkMode ? "dark-block" : "block"}>Maybe I should have come at a less busy time, people are in my path</div>
-                        <div className={isDarkMode ? "dark-block" : "block"}>I hope they restocked their produce</div>
+                        <div className="block">I have a good idea what I want to cook this week.</div>
+                        <div className="block">Maybe I should have come at a less busy time, people are in my path</div>
+                        <div className="block">I hope they restocked their produce</div>
                     </Col>
-                    <Col>
+                    <Col xs="auto" sm="6" lg="3">
                     <h4>Says</h4>
-                        <div className={isDarkMode ? "dark-block-2" : "block-2"}>See you this time next week!</div>
-                        <div className={isDarkMode ? "dark-block-2" : "block-2"}>I brought a list for good measure.</div>
-                        <div className={isDarkMode ? "dark-block-2" : "block-2"}>I'm excited to see what's new!</div>
+                        <div className="block-2">See you this time next week!</div>
+                        <div className="block-2">I brought a list for good measure.</div>
+                        <div className="block-2">I'm excited to see what's new!</div>
 
                     </Col>
-                    <Col>
+                    <Col xs="auto" sm="6" lg="3">
                    <h4>Feels</h4>
-                        <div className={isDarkMode ? "dark-block" : "block"}>I'm excited to see what's new! (So I can keep track of changes and stay in control) </div>
-                        <div className={isDarkMode ? "dark-block" : "block"}>Wishes it was less crowded</div>
-                        <div className={isDarkMode ? "dark-block" : "block"}>Satisfied they know most of the store layout</div>
-                        <div className={isDarkMode ? "dark-block" : "block"}>Feel in control</div>
-                        <div className={isDarkMode ? "dark-block" : "block"}>Wishes the produce wouldn't switch around so much</div>
+                        <div className="block">I'm excited to see what's new! (So I can keep track of changes and stay in control) </div>
+                        <div className="block">Wishes it was less crowded</div>
+                        <div className="block">Satisfied they know most of the store layout</div>
+                        <div className="block">Feel in control</div>
+                        <div className="block">Wishes the produce wouldn't switch around so much</div>
                     </Col>
-                    <Col>
+                    <Col xs="auto" sm="6" lg="3">
                     <h4>Does</h4>
-                        <div className={isDarkMode ? "dark-block-2" : "block-2"}>Does not use the list too much, it's more of a formality.</div>
-                        <div className={isDarkMode ? "dark-block-2" : "block-2"}>This grocery trip is part of their routine. They blocked the time, and take the time to go through the whole store.</div>
-                        <div className={isDarkMode ? "dark-block-2" : "block-2"}>Have a clear idea where most usual products are</div>
-                        <div className={isDarkMode ? "dark-block-2" : "block-2"}>Spend a bit more time than they would like finding produce</div>     
+                        <div className="block-2">Does not use the list too much, it's more of a formality.</div>
+                        <div className="block-2">This grocery trip is part of their routine. They blocked the time, and take the time to go through the whole store.</div>
+                        <div className="block-2">Have a clear idea where most usual products are</div>
+                        <div className="block-2">Spend a bit more time than they would like finding produce</div>     
                     </Col>
                 </Row>
-                <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                <Row>
+                <Col xs="auto" md="4">
+                <Image className="bootleg-image" src={king}></Image>
+                </Col>
+                <Col xs="auto" md="8">
+                <Callout>
                     1) From our interviews, one persona emerges: the master of groceries, the king of the playground. This persona does not like their routine disturbed!
                     They have a good handle on their preferred grocery store. If they are going to deviate from routine, it's going to be on their terms.
                     <br/>
@@ -417,42 +379,47 @@ function Personas() {
                     <br/>
                     3)Busy professionals and parents who rely on a system fall into this persona: they need their routine to function! Both Yesenia and Efia fall into this category. 
                     Because Efia buys more produce, she'll be a more frustrated customer than Yesenia, despite being equally organized and familiar with the store.
-                </h5>
+                </Callout>
+                </Col>
+                
+                </Row>
 
-            </div>
-            <div ref={section7Ref} className={isDarkMode ? "dark-section" : "section"}>
+            </Section>
+            <Section ref={section7Ref}>
             <h1>The mouse</h1>
+
                 <Row style={{marginBottom: "2rem"}}>
-                    <Col>
+                    <Col xs="auto" sm="6" lg="3">
                     <h4>Thinks</h4>
-                    <div className={isDarkMode ? "dark-block-2" : "block-2"}>I want a little snack</div>
-                    <div className={isDarkMode ? "dark-block-2" : "block-2"}>I really have to hurry!</div>
-                    <div className={isDarkMode ? "dark-block-2" : "block-2"}>I'm not 100% sure what I'll get, but I have an idea</div>
-                    <div className={isDarkMode ? "dark-block-2" : "block-2"}>If I can't find this item easily, I'll give up pretty fast</div>
+                    <div className="block-2">I want a little snack</div>
+                    <div className="block-2">I really have to hurry!</div>
+                    <div className="block-2">I'm not 100% sure what I'll get, but I have an idea</div>
+                    <div className="block-2">If I can't find this item easily, I'll give up pretty fast</div>
                     </Col>
-                    <Col>
+                    <Col xs="auto" sm="6" lg="3">
                     <h4>Says</h4>
-                    <div className={isDarkMode ? "dark-block" : "block"}>I'll just be in and out, and won't buy much</div>
-                    <div className={isDarkMode ? "dark-block" : "block"}>This store is huge!</div>
+                    <div className="block">I'll just be in and out, and won't buy much</div>
+                    <div className="block">This store is huge!</div>
                     </Col>
-                    <Col>
+                    <Col xs="auto" sm="6" lg="3">
                    <h4>Feels</h4>
-                    <div className={isDarkMode ? "dark-block-2" : "block-2"}>Does not know the whole store, maybe just enough to get in and out efficiently</div>
-                    <div className={isDarkMode ? "dark-block-2" : "block-2"}>Stressed they'll make it on time to their next commitment</div>
+                    <div className="block-2">Does not know the whole store, maybe just enough to get in and out efficiently</div>
+                    <div className="block-2">Stressed they'll make it on time to their next commitment</div>
                         
                     </Col>
-                    <Col>
+                    <Col xs="auto" sm="6" lg="3">
                     <h4>Does</h4>
-                    <div className={isDarkMode ? "dark-block" : "block"}>Ends up buying more than expected</div>
-                    <div className={isDarkMode ? "dark-block" : "block"}>Gets tempted by the special offers and sweet treats</div>
-                    <div className={isDarkMode ? "dark-block" : "block"}>Shop irregularly, whenever possible. They're not mentally ready to spend a lot of time shopping.</div>      
+                    <div className="block">Ends up buying more than expected</div>
+                    <div className="block">Gets tempted by the special offers and sweet treats</div>
+                    <div className="block">Shop irregularly, whenever possible. They're not mentally ready to spend a lot of time shopping.</div>      
 
                     </Col>
-                    <Col>
-                    <Image className={isDarkMode ? "dark-image" : ""} src={mouse}></Image>
+                    <Col xs="auto" sm="6" lg="3">
                     </Col>
                 </Row>
-                <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                <Row>
+                <Col xs="auto" md="8">
+                <Callout>
                     1) The  mouse persona is unfamiliar with the store. They have gone a couple times at most, and know of some of the items they need.
                     They aren't looking to cook much, but need just a few items to get by. They go off plan easily.
                     <br/>
@@ -464,79 +431,77 @@ function Personas() {
                     <br/>
                     3) The people falling into the mouse persona are not looking to cook and may be students on partial meal plans or travelers. 
                     They don't have much time and are fitting this grocery run in between activities.
-                </h5>
+                </Callout>
+                </Col>
+                <Col xs="auto" md="4">
+                <Image className="bootleg-image" src={mouse}></Image>
+                </Col>
+                </Row>
 
-            </div>
-            <div ref={section8Ref} className={isDarkMode ? "dark-section" : "section"}>
+            </Section>
+            <Section ref={section8Ref}>
                 <h1>Storyboards</h1>
-                <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                <Callout>
                     The king of the playground
-                </h5>
+                </Callout>
                 <Row>
-                    <Col>
-                    <Image className={isDarkMode ? "dark-image" : ""} src={one}></Image>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    <Col xs="auto" sm="6" md="6" lg="4">
+                    <Image className="bootleg-image" src={one}></Image>
+                    <Callout>
                         The king of the playground enters the super market, reusable bag in one hand, list in the other. Same time, every week.
-                    </h5>
+                    </Callout>
                     </Col>
-                    <Col>
-                    <Image className={isDarkMode ? "dark-image" : ""} src={two}></Image>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    <Col xs="auto" sm="6" md="6" lg="4">
+                    <Image className="bootleg-image" src={two}></Image>
+                    <Callout>
                         They tackle the produce section first. This is where things tend to go off plan: they hope what they need is there and they can find it quick!
-                    </h5>
+                    </Callout>
                     </Col>
-                    <Col>
-                    <Image className={isDarkMode ? "dark-image" : ""} src={three}></Image>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    <Col xs="auto" sm="6" md="6" lg="4">
+                    <Image className="bootleg-image" src={three}></Image>
+                    <Callout>
                         Phew, produce is over. Onto the frozen food section! This also changes around a lot. Let's scan both sides carefully. 
                         In the face of irregularity, we use a system.
-                    </h5>
+                    </Callout>
                     </Col>
-                </Row>
-                <Row>
-                    <Col>
-                    <Image className={isDarkMode ? "dark-image" : ""} src={four}></Image>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    <Col xs="auto" sm="6" md="6" lg="4">
+                    <Image className="bootleg-image" src={four}></Image>
+                    <Callout>
                         Darn, a worker is restocking this next aisle and it's quite busy too. They'd rather alter their shopping path than sacrifice their efficient browsing.
-                    </h5>
+                    </Callout>
                     </Col>
-                    <Col>
-                    <Image className={isDarkMode ? "dark-image" : ""} src={five}></Image>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    <Col xs="auto" sm="6" md="6" lg="4">
+                    <Image className="bootleg-image" src={five}></Image>
+                    <Callout>
                         Alright, we just got 3 more aisles to go. Swinging by the spices reminds them their household is running out of salt. 
                         They also see a bread their friend recommended. Snaking through all the aisles allowed them to remember both these things.
-                    </h5>
+                    </Callout>
                     </Col>
-                    <Col>
-                    <Image className={isDarkMode ? "dark-image" : ""} src={six}></Image>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    <Col xs="auto" sm="6" md="6" lg="4">
+                    <Image className="bootleg-image" src={six}></Image>
+                    <Callout>
                         Last step: did we forget anything? Likely not, but we check the list.
-                    </h5>
+                    </Callout>
                     </Col>
-                </Row>
-                <Row>
-                <Col>
-                    <Image className={isDarkMode ? "dark-image" : ""} src={seven}></Image>
-                    <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                    <Col xs="auto" sm="6" md="6" lg="4">
+                    <Image className="bootleg-image" src={seven}></Image>
+                    <Callout>
                         They usually skip over the appealing sweats and other snacks at checkout, and pay!
-                    </h5>
+                    </Callout>
                 </Col>
-                <Col></Col>
-                <Col></Col>
                 </Row>
-            </div>
-            <div ref={section9Ref} className={isDarkMode ? "dark-section" : "section"}>
+            </Section>
+            <Section ref={section9Ref}>
                 <h1 style={{marginBottom: "4rem"}}>Conclusion</h1>
-                <h5 className={isDarkMode ? "dark-callout" : "callout"}>
+                <Callout>
                     The mouse and the king are very different grocery store users, yet stores must do their best to accommodate both.
                     To accommodate the mouse, stores will follow a universal layout. They'll furthermore put like items together, and labels aisles in a helpful way.
                     To accommodate the king, the store must introduce change gracefully. 
                     Introducing too much unfamiliarity and disorder will ruin the king's shopping experience, who may stop being a loyal customer.
                     The store introduces new products with special displays, which is a good compromise, but they could do a better job communicating with the king when certain seasonal products will be sold, amongst other changes.
 
-                </h5>
-            </div>
-            
+                </Callout>
+            </Section>
         </div>
     )
     
