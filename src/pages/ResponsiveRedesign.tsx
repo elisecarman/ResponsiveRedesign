@@ -30,6 +30,7 @@ function ResponsiveRedesign() {
     const section6Ref = useRef(null);
     const section7Ref = useRef(null);
     const section8Ref = useRef(null);
+    const section9Ref = useRef(null);
 
     const refs = [
         section1Ref,
@@ -40,9 +41,11 @@ function ResponsiveRedesign() {
         section6Ref,
         section7Ref,
         section8Ref,
+        section9Ref,
     ]
     const titles = [
         "Intro",
+        "Redesign Target",
         "Desktop Pain Points",
         "Mobile Pain Points",
         "Visual Design Style Guide",
@@ -112,6 +115,8 @@ function ResponsiveRedesign() {
                 Pointing out problems is easy, but finding solutions is a good deal harder.
                 I will be choosing a website to redesign, and use this opportunity to think deeply about accessibility, efficiency, memorability, and learnability. 
             </Callout>
+            </Section>
+            <Section first={false} ref={section2Ref}>
             <h3 style={{marginTop: '4rem'}}>Bee's Thai Cuisine</h3>
             <Row className='align-items-center'>
             <Col xs='1'>
@@ -128,7 +133,7 @@ function ResponsiveRedesign() {
             </Row>
             <Image src={beerestaurant}/>
         </Section>
-        <Section first={false} ref={section2Ref}>
+        <Section first={false} ref={section3Ref}>
             <h1>Desktop Pain Points</h1>
             <Callout>
                 Let's take a look at the current state of the menu page!
@@ -228,7 +233,7 @@ function ResponsiveRedesign() {
             </Col> */}
             </Row>     
         </Section>
-        <Section first={false} ref={section3Ref}>
+        <Section first={false} ref={section4Ref}>
             <h1>Mobile Pain Points</h1>
             <Row>
                 <Col xs="auto" lg="6">
@@ -271,7 +276,7 @@ function ResponsiveRedesign() {
                     A tooltip could still be added to clarify icon meanings.
                 </Callout>
         </Section>
-        <Section first={false} ref={section4Ref}>
+        <Section first={false} ref={section5Ref}>
             <h1>Visual Style Redesign Guide</h1>
             <Callout>
                 Let's first create a style guide to establish a cohesive brand for this redesign. Much of the original styling was reused. 
@@ -279,7 +284,7 @@ function ResponsiveRedesign() {
             </Callout>
             <Image src={styleGuide}></Image>
         </Section>
-        <Section first={false} ref={section5Ref}>
+        <Section first={false} ref={section6Ref}>
         <h1>Desktop view redesign</h1>
 
             <Callout>
@@ -290,15 +295,15 @@ function ResponsiveRedesign() {
             <Image src={desktopFrame}></Image>
 
         </Section>
-        <Section first={false} ref={section6Ref}>
+        <Section first={false} ref={section7Ref}>
             <h1>Tablet view redesign</h1>
             <Image src={tabletFrame}></Image>
         </Section>
-        <Section first={false} ref={section7Ref}>
+        <Section first={false} ref={section8Ref}>
             <h1>Mobile view redesign</h1>
             <Image src={mobileFrame}></Image>
         </Section>
-        <Section first={false} ref={section8Ref}>
+        <Section first={false} ref={section9Ref}>
             <h1>Complete Redesign</h1>
             <h3> You may find my complete redesign here! 
                 <a className='ms-3' href={`${import.meta.env.BASE_URL}beesthai.html`} target="_blank" rel="noopener noreferrer">
