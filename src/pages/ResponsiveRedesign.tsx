@@ -58,14 +58,14 @@ function ResponsiveRedesign() {
     <div>
         <Navigation refs={refs} titles={titles}/>
         <Section first={true} ref={section1Ref}>
-            <h1 className='mb-3'>Responsive Redesign</h1>
-            <div className='mb-5 row justify-content-start '>
-            <h4 >quick link: 
+            <h1 style={{marginBottom: "3rem"}}>Responsive Redesign</h1>
+            {/* <div className='mb-5 row justify-content-start '> */}
+            <h2 style={{marginBottom: "3rem"}}>quick link: 
                 <a className='ms-3' href={`${import.meta.env.BASE_URL}beesthai.html`} target="_blank" rel="noopener noreferrer">
                 my redesign
                 </a>
-            </h4>
-            </div>
+            </h2>
+            {/* </div> */}
 
             <Row>
             <Col>
