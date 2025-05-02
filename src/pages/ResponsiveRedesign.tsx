@@ -18,6 +18,7 @@ import phone3 from "../assets/responsive-redesign/phone3.png"
 import desktopFrame from "../assets/responsive-redesign/desktop-frame.png"
 import tabletFrame from "../assets/responsive-redesign/tablet-frame.png"
 import mobileFrame from "../assets/responsive-redesign/mobile-frame.png"
+import wingguy from "../assets/portfolio/wing-guy.png"
 
 
 
@@ -58,7 +59,9 @@ function ResponsiveRedesign() {
     <div>
         <Navigation refs={refs} titles={titles}/>
         <Section first={true} ref={section1Ref}>
-            <h1 style={{marginBottom: "3rem"}}>Responsive Redesign</h1>
+            <Row>
+            <Col style={{zIndex: 3}}>
+            <h1 className='title' style={{marginBottom: "3rem"}}>Responsive Redesign</h1>
             {/* <div className='mb-5 row justify-content-start '> */}
             <h2 style={{marginBottom: "3rem"}}>quick link: 
                 <a className='ms-3' href={`${import.meta.env.BASE_URL}beesthai.html`} target="_blank" rel="noopener noreferrer">
@@ -115,6 +118,12 @@ function ResponsiveRedesign() {
                 Pointing out problems is easy, but finding solutions is a good deal harder.
                 I will be choosing a website to redesign, and use this opportunity to think deeply about accessibility, efficiency, memorability, and learnability. 
             </Callout>
+            </Col>
+            <Col xs={0} lg={6} className="d-none d-lg-block">
+            <img style={{position: "absolute", width: "1000px", marginLeft: "0x", zIndex:"0"}} src={wingguy}></img>
+            </Col>
+            </Row>
+
             </Section>
             <Section first={false} ref={section2Ref}>
             <h3 style={{marginTop: '4rem'}}>Bee's Thai Cuisine</h3>

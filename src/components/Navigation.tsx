@@ -24,6 +24,8 @@ function Navigation({refs, titles}: NavigationProps) {
         // defaultActiveKey="0"
         className="section-navigation"
         >
+        <a href="https://elisecarman.github.io/UIUXportfolio/"><h1 className='home'>Home</h1></a>
+
         <Accordion.Item 
         eventKey="0"
         style={{
@@ -40,7 +42,7 @@ function Navigation({refs, titles}: NavigationProps) {
                     <Button 
                     style={{width: "100px", display: "block"}}
                     variant={isDarkMode ? "secondary" : "dark"} onClick={() => scrollToSection(refs[index])} className="w-100 mb-3" >
-                    {title}
+                    <h3 style={{fontSize: "1rem"}}>{title}</h3>
                     </Button>
                 ))
             }
